@@ -1,0 +1,15 @@
+@media only screen and (max-width: 675px) {
+    .large-screen {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 675px) {
+    .small-screen {
+        display: none;
+    }
+}
+
+header {
+    height: var(--nav-height);
+}
