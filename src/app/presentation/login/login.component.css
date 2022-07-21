@@ -1,0 +1,7 @@
+.canvas {
+    height: calc(100% - var(--nav-height))
+}
+
+.card {
+    width: 310px;
+}
