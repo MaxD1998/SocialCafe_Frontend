@@ -12,3 +12,8 @@ body {
     height: 100%;
     background-image: url("assets/images/background.jpg");
 }
+
+.canvas {
+    height: calc(100% - var(--nav-height))
+}
+
