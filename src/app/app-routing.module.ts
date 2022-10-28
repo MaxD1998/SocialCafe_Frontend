@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './presentation/login/login.component';
-import { MainComponent } from './presentation/main/main.component';
-import { MessageBoardComponent } from './presentation/messages/message-board/message-board.component';
-import { RegisterComponent } from './presentation/register/register.component';
+import { LoginComponent } from './components/login/login.component';
+import { MainComponent } from './components/main/main.component';
+import { RegisterComponent } from './components/register/register.component';
+import { MessageComponent } from './components/message/message.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'message', component: MessageBoardComponent},
+  {path: 'message', component: MessageComponent},
   {path: '**', component: MainComponent},
 ];
 

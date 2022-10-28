@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { MessageDto } from 'src/app/core/models/MessageDto';
 
 @Component({
-  selector: 'app-message-board',
-  templateUrl: './message-board.component.html',
-  styleUrls: ['./message-board.component.css']
+  selector: 'app-message',
+  templateUrl: './message.component.html',
+  styleUrls: ['./message.component.css']
 })
-export class MessageBoardComponent implements OnInit {
-
+export class MessageComponent implements OnInit {
+  
   messages: MessageDto[] = [];
 
   constructor() { }
