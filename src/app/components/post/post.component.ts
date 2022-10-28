@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { PostDto } from 'src/app/core/models/PostDto';
 
 @Component({
-  selector: 'app-post-board',
-  templateUrl: './post-board.component.html',
-  styleUrls: ['./post-board.component.css']
+  selector: 'app-post',
+  templateUrl: './post.component.html',
+  styleUrls: ['./post.component.css']
 })
-export class PostBoardComponent implements OnInit {
+export class PostComponent implements OnInit {
 
   posts = [];
   initPost: PostDto = {
@@ -26,5 +26,4 @@ export class PostBoardComponent implements OnInit {
   textareaAutoHeightResize(textarea: HTMLTextAreaElement) {
     textarea.style.height = 2 + textarea.scrollHeight + "px";
   }
-
 }
