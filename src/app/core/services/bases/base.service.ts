@@ -17,7 +17,7 @@ export abstract class BaseService {
     return this.http.get<TResult>(this.api + address, { withCredentials: withCredentials });
   } 
 
-  post<TResult, TModel>(address: string, dto: TModel): Observable<TResult> {
-    return this.http.post<TResult>(this.api + address, dto);
+  post<TResult, TModel>(address: string, dto: TModel, withCredentials: boolean = false): Observable<TResult> {
+    return this.http.post<TResult>(this.api + address, dto, { withCredentials: withCredentials});
   } 
 }

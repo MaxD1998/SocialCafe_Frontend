@@ -2,6 +2,7 @@ import { CookieService } from 'ngx-cookie-service';
 
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -27,9 +28,9 @@ import { SharedModule } from './components/shared/shared.module';
   imports: [
     BrowserModule,
     HttpClientModule,
-
     AppRoutingModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule
   ],
   providers: [CookieService],
   bootstrap: [AppComponent]

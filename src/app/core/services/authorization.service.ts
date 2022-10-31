@@ -10,7 +10,7 @@ import { BaseService } from './bases/base.service';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthorizationServiceService extends BaseService{
+export class AuthorizationService extends BaseService{
 
   constructor(http: HttpClient, private accountService: AccountService) {
     super(http);
@@ -24,7 +24,7 @@ export class AuthorizationServiceService extends BaseService{
   }
 
   login(dto: LoginDto) {
-    this.post<AuthorizeDto, LoginDto>(AuthorizationAddressConst.refreshToken, dto)
+    this.post<AuthorizeDto, LoginDto>(AuthorizationAddressConst.login, dto, true)
       .subscribe(response => {
         this.accountService.setUser(response);
       });
