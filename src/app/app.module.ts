@@ -23,7 +23,7 @@ import { SharedModule } from './components/shared/shared.module';
     MessageComponent,
     NavComponent,
     PostComponent,
-    RegisterComponent
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,

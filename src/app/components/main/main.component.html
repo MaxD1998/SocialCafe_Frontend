@@ -1,3 +1,7 @@
-<div class="canvas">
+<div class="overflow-y-auto" *ngIf="checkSignIn() else elseBlock">
     <app-post></app-post>
 </div>
+<ng-template #elseBlock>
+    <app-login></app-login>
+</ng-template>
+

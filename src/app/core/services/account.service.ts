@@ -3,6 +3,7 @@ import { ReplaySubject } from 'rxjs';
 import { Injectable } from '@angular/core';
 
 import { AuthorizeDto } from '../models/authorize-dto';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -18,5 +19,13 @@ export class AccountService {
 
   removeUser() {
     this.userSource.next(null);
+  }
+
+  hasUser() {
+    return this.user$.pipe(
+      map(user => {
+        return user ? true : false;
+      })
+    );
   }
 }

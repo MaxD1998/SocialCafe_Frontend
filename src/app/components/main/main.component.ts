@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { map } from 'rxjs/operators';
+import { AccountService } from 'src/app/core/services/account.service';
 
 @Component({
   selector: 'app-main',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  constructor() { }
+  constructor(private accountService: AccountService) { }
 
   ngOnInit(): void {
   }
 
+  checkSignIn(): boolean {
+    let result
+    
+    this.accountService.user$.pipe(
+      map(user => {
+        return user ? true : false;
+      })
+    ).subscribe(response => {
+      result = response;
+    });
+    
+    return result;
+  }
 }
