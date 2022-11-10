@@ -1,5 +1,5 @@
 export interface PostDto {
-    FirstName: string;
-    LastName: string;
-    Text: string;
+    firstName: string;
+    lastName: string;
+    text: string;
 }

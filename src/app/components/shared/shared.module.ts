@@ -1,9 +1,8 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PostSharedComponent } from './post-shared/post-shared.component';
+import { NgModule } from '@angular/core';
+
 import { MessageSharedComponent } from './message-shared/message-shared.component';
-
-
+import { PostSharedComponent } from './post-shared/post-shared.component';
 
 @NgModule({
   declarations: [
@@ -11,7 +10,7 @@ import { MessageSharedComponent } from './message-shared/message-shared.componen
     PostSharedComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule,
   ],
   exports: [
     MessageSharedComponent,

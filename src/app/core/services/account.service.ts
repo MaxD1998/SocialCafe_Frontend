@@ -1,31 +1,33 @@
-import { ReplaySubject } from 'rxjs';
-
 import { Injectable } from '@angular/core';
 
 import { AuthorizeDto } from '../models/authorize-dto';
-import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AccountService {
-  private userSource = new ReplaySubject<AuthorizeDto>(1);
+  private readonly userItem = "user"
+  private user: AuthorizeDto = null;
 
-  user$ = this.userSource.asObservable();
-
-  setUser(dto: AuthorizeDto) {
-    this.userSource.next(dto);
+  getUser(): AuthorizeDto {
+    return this.user;
   }
 
-  removeUser() {
-    this.userSource.next(null);
+  isSignedIn(): boolean {
+    return this.user != null
   }
 
-  hasUser() {
-    return this.user$.pipe(
-      map(user => {
-        return user ? true : false;
-      })
-    );
+  loadUser() {
+    this.user = JSON.parse(localStorage.getItem(this.userItem));
+  }
+
+  setUser(dto: AuthorizeDto): void {
+    this.user = dto;
+    localStorage.setItem(this.userItem, JSON.stringify(dto));
+  }
+
+  removeUser(): void {
+    this.user = null;
+    localStorage.removeItem(this.userItem);
   }
 }

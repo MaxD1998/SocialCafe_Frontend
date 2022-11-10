@@ -1,5 +1,5 @@
 export interface MessageDto {
-    FirstName: string;
-    LastName: string;
-    Text: string;
+    firstName: string;
+    lastName: string;
+    text: string;
 }

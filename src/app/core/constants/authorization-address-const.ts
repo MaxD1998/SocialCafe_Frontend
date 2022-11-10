@@ -1,7 +1,7 @@
 export class AuthorizationAddressConst {
     private static base = "Authorization/";
 
-    static login = this.base + "Login";
-    static refreshToken = this.base + "RefreshToken";
-    static register = this.base + "Register";
+    static readonly login = this.base + "Login";
+    static readonly refreshToken = this.base + "RefreshToken";
+    static readonly register = this.base + "Register";
 }

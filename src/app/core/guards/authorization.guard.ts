@@ -1,31 +1,24 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, CanDeactivate } from '@angular/router';
-import { Observable } from 'rxjs';
+import { CanActivate, Router, UrlTree } from '@angular/router';
+
+import { ComponentAddressConst } from '../constants/component-address-const';
 import { AccountService } from '../services/account.service';
-import { map } from 'rxjs/operators'
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthorizationGuard implements CanActivate, CanDeactivate<unknown>  {
 
-  constructor(private accountService: AccountService) {
+export class AuthorizationGuard implements CanActivate {
+
+  constructor(
+    private accountService: AccountService,
+    private router: Router) {
   }
 
-  canActivate(): Observable<boolean> {
-    return this.accountService.user$.pipe(
-      map(user => {
-        return user ? true : false;
-      })
-    );
+  canActivate(): boolean | UrlTree {
+    if (!this.accountService.isSignedIn()) {
+      return this.router.parseUrl(ComponentAddressConst.login);
+    }
+    return true;
   }
-  
-  canDeactivate(): Observable<boolean> {
-    return this.accountService.user$.pipe(
-      map(user => {
-        return user ? false : true;
-      })
-    );
-  }
-
 }

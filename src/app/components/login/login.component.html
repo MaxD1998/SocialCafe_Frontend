@@ -7,16 +7,16 @@
             
             <div class="border-top border-secondary"></div>
 
-            <form>
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
                 <div class="form-floating mt-3">
-                    <input id="floatingEmail"  class="form-control" type="email"/>
+                    <input id="floatingEmail"  class="form-control" type="email" formControlName="email"/>
                     <label for="floatingEmail">
                         Email:
                     </label>
                 </div>
 
                 <div class="form-floating mt-3">
-                    <input id="floatingPassword"  class="form-control" type="password"/>
+                    <input id="floatingPassword"  class="form-control" type="password" formControlName="password"/>
                     <label for="floatingPassword">
                         Password:
                     </label>
@@ -27,7 +27,7 @@
                     <label class="from-label ps-2">Zapamiętaj mnie!</label>
                 </div>
 
-                <button class="btn btn-outline-secondary mt-3" (click)="onSubmit()">Zaloguj</button>
+                <button class="btn btn-outline-secondary mt-3">Zaloguj</button>
             </form>
         </div>
     </div>
