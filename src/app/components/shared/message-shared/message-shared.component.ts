@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { MessageDto } from 'src/app/core/models/MessageDto';
+import { MessageDto } from 'src/app/core/models/message-dto';
 
 @Component({
   selector: 'app-message-shared',

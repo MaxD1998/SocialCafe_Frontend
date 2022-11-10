@@ -1,15 +1,40 @@
-import { Component, OnInit } from '@angular/core';
+import { ComponentAddressConst } from 'src/app/core/constants/component-address-const';
+import { AccountService } from 'src/app/core/services/account.service';
+
+import { Component, DoCheck } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.css']
 })
-export class NavComponent implements OnInit {
+export class NavComponent implements DoCheck {
 
-  constructor() { }
+  isSignedIn: boolean
+  username: string 
 
-  ngOnInit(): void {
+  constructor(private accountService: AccountService, private router: Router) { }
+
+  ngDoCheck(): void {
+    this.isSignedIn = this.accountService.isSignedIn();
+    this.username = this.getUsername();
+  }
+  
+
+  logout(): void {
+    this.accountService.removeUser();
+    this.router.navigateByUrl(ComponentAddressConst.login);
+  }
+
+  private getUsername(): string {
+    let user = this.accountService.getUser();
+
+    if(user != null) {
+      return user.username
+    }
+
+    return null;
   }
 
 }

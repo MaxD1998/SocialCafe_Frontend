@@ -1,5 +1,6 @@
+import { MessageDto } from 'src/app/core/models/message-dto';
+
 import { Component, OnInit } from '@angular/core';
-import { MessageDto } from 'src/app/core/models/MessageDto';
 
 @Component({
   selector: 'app-message',
@@ -23,9 +24,9 @@ export class MessageComponent implements OnInit {
     if (content == "") return;
 
     let message: MessageDto = {
-      FirstName: "Maks",
-      LastName: "Michalski",
-      Text: content
+      firstName: "Maks",
+      lastName: "Michalski",
+      text: content
     };
 
     this.messages.push(message);

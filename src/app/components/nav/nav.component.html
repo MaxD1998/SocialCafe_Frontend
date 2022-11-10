@@ -1,5 +1,5 @@
 <header class="d-flex container-fluid bg-dark text-white">
-    <a class="navbar text-white text-decoration-none fs-2" href="/">
+    <a class="navbar text-white text-decoration-none fs-2" routerLink="">
         <span class="large-screen">
             SocialCafe
         </span>
@@ -7,44 +7,46 @@
             SC
         </span>
     </a>
-    <nav class="navbar navbar-expand mx-auto">
-        <div class="container-fluid">
-            <ul class="navbar-nav">
-                <li class="nav-item mx-3">
-                    <a class="nav-link text-white fs-5" routerLink="message">
-                        <span class="large-screen">
-                            SocialChat
-                        </span>
-                        <i class="bi bi-chat small-screen"></i>
-                    </a>
-                </li>
-                <li class="nav-item mx-3">
-                    <a class="nav-link text-white fs-5" href="/">
-                        <span class="large-screen">
-                            Znajomi
-                        </span>
-                        <i class="bi bi-people small-screen"></i>
-                    </a>
-                </li>
-                <li class="nav-item mx-3">
-                    <a class="nav-link text-white fs-5" href="/">
-                        <span class="large-screen">
-                            Twój profil
-                        </span>
-                        <i class="bi bi-person small-screen"></i>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-    <button class="btn btn-outline-light my-2  fs-5" data-bs-toggle="dropdown" aria-expanded="false">
-        <span class="large-screen">
-            Maks Michalski
-        </span>
-        <i class="bi bi-list small-screen"></i>
-    </button>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropMenu2">
-        <li class="dropdown-item">Ustawienia</li>
-        <li class="dropdown-item">Wyloguj</li>
-    </ul>
+    <ng-container *ngIf="isSignedIn">
+        <nav class="navbar navbar-expand mx-auto">
+            <div class="container-fluid">
+                <ul class="navbar-nav">
+                    <li class="nav-item mx-3">
+                        <a class="nav-link text-white fs-5" routerLink="message">
+                            <span class="large-screen">
+                                SocialChat
+                            </span>
+                            <i class="bi bi-chat small-screen"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item mx-3">
+                        <a class="nav-link text-white fs-5" href="/">
+                            <span class="large-screen">
+                                Znajomi
+                            </span>
+                            <i class="bi bi-people small-screen"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item mx-3">
+                        <a class="nav-link text-white fs-5" href="/">
+                            <span class="large-screen">
+                                Twój profil
+                            </span>
+                            <i class="bi bi-person small-screen"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <button class="btn btn-outline-light my-2  fs-5" data-bs-toggle="dropdown" aria-expanded="false">
+            <span class="large-screen">
+                {{username}}
+            </span>
+            <i class="bi bi-list small-screen"></i>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropMenu2">
+            <li class="dropdown-item">Ustawienia</li>
+            <li class="dropdown-item" (click)="logout()">Wyloguj</li>
+        </ul>
+    </ng-container>
 </header>

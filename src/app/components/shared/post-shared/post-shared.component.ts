@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { PostDto } from 'src/app/core/models/PostDto';
+import { PostDto } from 'src/app/core/models/post-dto';
 
 @Component({
   selector: 'app-post-shared',
