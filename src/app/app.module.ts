@@ -5,16 +5,19 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ChatComponent } from './components/chat/chat.component';
+import {
+    MessageBubbleComponent
+} from './components/chat/message/message-bubble/message-bubble.component';
+import { MessageComponent } from './components/chat/message/message.component';
 import { LoginComponent } from './components/login/login.component';
 import { MainComponent } from './components/main/main.component';
-import { MessageComponent } from './components/message/message.component';
 import { NavComponent } from './components/nav/nav.component';
+import { PostBubbleComponent } from './components/post/post-bubble/post-bubble.component';
 import { PostComponent } from './components/post/post.component';
 import { RegisterComponent } from './components/register/register.component';
-import { SharedModule } from './components/shared/shared.module';
 import { ErrorInterceptor } from './core/interceptors/error.interceptor';
 import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
-import { AccountService } from './core/services/account.service';
 import { AuthorizationService } from './core/services/authorization.service';
 
 @NgModule({
@@ -23,15 +26,17 @@ import { AuthorizationService } from './core/services/authorization.service';
     LoginComponent,
     MainComponent,
     MessageComponent,
+    MessageBubbleComponent,
     NavComponent,
+    PostBubbleComponent,
     PostComponent,
     RegisterComponent,
+    ChatComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    SharedModule,
     ReactiveFormsModule
   ],
   providers: [
@@ -39,10 +44,10 @@ import { AuthorizationService } from './core/services/authorization.service';
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     { 
       provide: APP_INITIALIZER, 
-      useFactory(accountService: AccountService) {
-        return () => accountService.loadUser();
+      useFactory(authorizationService: AuthorizationService) {
+        return () => authorizationService.authorize();
       },
-      deps: [ AccountService ],
+      deps: [ AuthorizationService ],
       multi: true
     },
   ],

@@ -24,6 +24,8 @@ export class MessageComponent implements OnInit {
     if (content == "") return;
 
     let message: MessageDto = {
+      id: 0,
+      conversationId: 0,
       firstName: "Maks",
       lastName: "Michalski",
       text: content

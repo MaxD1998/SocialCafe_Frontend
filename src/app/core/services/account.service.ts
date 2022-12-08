@@ -1,3 +1,5 @@
+import { CookieService } from 'ngx-cookie-service';
+
 import { Injectable } from '@angular/core';
 
 import { AuthorizeDto } from '../models/authorize-dto';
@@ -6,28 +8,27 @@ import { AuthorizeDto } from '../models/authorize-dto';
   providedIn: 'root'
 })
 export class AccountService {
-  private readonly userItem = "user"
+  private readonly cookieItem = "RefreshToken"
   private user: AuthorizeDto = null;
+
+  constructor(private cookieService: CookieService) {
+
+  }
 
   getUser(): AuthorizeDto {
     return this.user;
   }
 
   isSignedIn(): boolean {
-    return this.user != null
-  }
-
-  loadUser() {
-    this.user = JSON.parse(localStorage.getItem(this.userItem));
+    return this.cookieService.get(this.cookieItem) != "";
   }
 
   setUser(dto: AuthorizeDto): void {
     this.user = dto;
-    localStorage.setItem(this.userItem, JSON.stringify(dto));
   }
 
   removeUser(): void {
     this.user = null;
-    localStorage.removeItem(this.userItem);
+    this.cookieService.delete(this.cookieItem);
   }
 }

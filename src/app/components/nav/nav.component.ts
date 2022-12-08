@@ -1,5 +1,6 @@
 import { ComponentAddressConst } from 'src/app/core/constants/component-address-const';
 import { AccountService } from 'src/app/core/services/account.service';
+import { AuthorizationService } from 'src/app/core/services/authorization.service';
 
 import { Component, DoCheck } from '@angular/core';
 import { Router } from '@angular/router';
@@ -14,7 +15,10 @@ export class NavComponent implements DoCheck {
   isSignedIn: boolean
   username: string 
 
-  constructor(private accountService: AccountService, private router: Router) { }
+  constructor(
+    private accountService: AccountService, 
+    private authorizationService: AuthorizationService,
+    private router: Router) { }
 
   ngDoCheck(): void {
     this.isSignedIn = this.accountService.isSignedIn();
@@ -23,7 +27,7 @@ export class NavComponent implements DoCheck {
   
 
   logout(): void {
-    this.accountService.removeUser();
+    this.authorizationService.logout();
     this.router.navigateByUrl(ComponentAddressConst.login);
   }
 
