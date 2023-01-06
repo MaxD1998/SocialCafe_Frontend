@@ -5,11 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ChatComponent } from './components/chat/chat.component';
-import {
-    MessageBubbleComponent
-} from './components/chat/message/message-bubble/message-bubble.component';
-import { MessageComponent } from './components/chat/message/message.component';
+import { ChatModule } from './components/chat/chat.module';
 import { LoginComponent } from './components/login/login.component';
 import { MainComponent } from './components/main/main.component';
 import { NavComponent } from './components/nav/nav.component';
@@ -25,18 +21,16 @@ import { AuthorizationService } from './core/services/authorization.service';
     AppComponent,
     LoginComponent,
     MainComponent,
-    MessageComponent,
-    MessageBubbleComponent,
     NavComponent,
     PostBubbleComponent,
     PostComponent,
     RegisterComponent,
-    ChatComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    ChatModule,
     ReactiveFormsModule
   ],
   providers: [

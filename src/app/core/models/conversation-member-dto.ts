@@ -1,9 +1,10 @@
+import { UserDto } from './user-dto';
+
 export interface ConversationMemberDto {
     id: number,
     conversationId: number,
     userId: number,
-    firstName: string,
-    lastName: string,
+    user: UserDto
     nick: string
 
 }

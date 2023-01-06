@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./message.component.css']
 })
 export class MessageComponent implements OnInit {
-  
+  message: string = "";
   messages: MessageDto[] = [];
 
   constructor() { }
@@ -16,21 +16,55 @@ export class MessageComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  sendMessage(element: HTMLDivElement){
-    
-    let content = element.textContent;
-    element.textContent = "";
+  onKeyDownHandler(event: KeyboardEvent, element: HTMLDivElement) {
+    if (event.key === "Enter" && !event.shiftKey) {
+      this.sendMessage(element);
+      return false;
+    }
 
-    if (content == "") return;
+    if (event.key === "Backspace" && element.textContent === "") {
+      this.clearContent(element);
+      return false;
+    }
 
-    let message: MessageDto = {
-      id: 0,
-      conversationId: 0,
-      firstName: "Maks",
-      lastName: "Michalski",
-      text: content
-    };
+    return true;
+  }
 
-    this.messages.push(message);
+  onKeyUpHandler(event: KeyboardEvent, element: HTMLDivElement) {
+    if (event.key === "Backspace" && element.textContent === "") {
+      this.clearContent(element);
+      return false;
+    }
+
+    return true;
+  }
+
+  private clearContent(element: HTMLDivElement) {
+    element.textContent = null;
+  }
+
+  private sendMessage(element: HTMLDivElement){
+      this.message = element.outerText;
+      console.log(this.message);
+      this.message = this.message
+        .trimStart()
+        .trimEnd();
+      console.log(this.message);
+        
+      element.textContent = null;
+
+      if (this.message === "") 
+        return false;
+
+      let message: MessageDto = {
+        id: 0,
+        conversationId: 0,
+        firstName: "Maks",
+        lastName: "Michalski",
+        text: this.message
+      };
+
+      this.messages.push(message);
+      return false;
   }
 }

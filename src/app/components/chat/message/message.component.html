@@ -1,13 +1,13 @@
-<div class="d-flex canvas border-secondary border-top">
-    <div class="bg-dark border-secondary border-end conversation"></div>
-    <div class="bg-dark flex-grow-1 d-flex flex-column">
-        <div class="text-board">
-            <app-message-bubble *ngFor="let message of messages" [message]="message"></app-message-bubble>
-        </div>
-        <div class="p-3">
-            <div class="border border-secondary rounded-5 py-2 px-3">
-                <div class="text-light text-box" contenteditable="true" data-placeholder="Wyślij wiadomość" #messageBox (keyup.enter)="sendMessage(messageBox)">
-                </div>
+<div class="bg-dark flex-grow-1 d-flex flex-column">
+    <div class="text-board">
+        <app-message-bubble *ngFor="let message of messages" [message]="message"></app-message-bubble>
+    </div>
+    <div class="p-3">
+        <div class="border border-secondary rounded-5 py-2 px-3">
+            <div class="text-light text-box" contenteditable="true" 
+                data-placeholder="Wyślij wiadomość" #messageBox 
+                (keydown)="onKeyDownHandler($event, messageBox)"
+                (keyup)="onKeyUpHandler($event, messageBox)">
             </div>
         </div>
     </div>

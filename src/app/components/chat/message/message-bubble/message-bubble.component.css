@@ -1,3 +1,6 @@
-span {
-    font-size: 12px;
+.username-box {
+    font-size: small;
+}
+.text-box {
+    white-space: pre-wrap;
 }

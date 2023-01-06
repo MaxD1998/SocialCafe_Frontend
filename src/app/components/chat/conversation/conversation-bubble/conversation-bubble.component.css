@@ -1,0 +1,33 @@
+:host {
+    display: flex;
+    height: 5rem;
+    width: 18.75rem;
+    padding: 0.5rem 0.75rem;
+}
+
+.circle {
+    border-radius: 50%;
+    background-color: green;
+}
+
+.circle-box {
+    width: 4rem;
+    padding: 0.5rem;
+}
+
+.detail-box {
+    width: 13.25rem;
+    padding: 0.5rem;
+}
+
+span {
+    display: inline-block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 12.25rem;
+}
+
+span.text-secondary {
+    font-size: small;
+}
