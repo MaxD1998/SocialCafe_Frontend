@@ -1,4 +1,4 @@
-import { MessageDto } from 'src/app/core/models/message-dto';
+import { MessageDto } from 'src/app/core/models/message/message.dto';
 
 import { Component, Input } from '@angular/core';
 

@@ -8,11 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./conversation.component.css']
 })
 export class ConversationComponent implements OnInit {
-
+  isVisiblePopup: boolean = false;
   constructor(public conversationService: ConversationService) { }
 
   ngOnInit(): void {
     this.conversationService.getConversations();
+  }
+
+  openClosePopup() {
+    this.isVisiblePopup = !this.isVisiblePopup;
   }
 
 }

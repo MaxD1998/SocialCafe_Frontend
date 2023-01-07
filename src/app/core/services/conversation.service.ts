@@ -2,8 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
 
 import { ConversationAddressConst } from '../constants/conversation-address-const';
-import { AuthorizeDto } from '../models/authorize-dto';
-import { ConversationDto } from '../models/conversation-dto';
+import { AuthorizeDto } from '../models/authorize.dto';
+import { ConversationDto } from '../models/conversation/conversation.dto';
 import { AccountService } from './account.service';
 import { BaseService } from './bases/base.service';
 

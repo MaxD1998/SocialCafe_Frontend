@@ -2,8 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { ConversationAddressConst } from '../constants/conversation-address-const';
-import { ConversationDto } from '../models/conversation-dto';
-import { MessageDto } from '../models/message-dto';
+import { ConversationDto } from '../models/conversation/conversation.dto';
+import { MessageDto } from '../models/message/message.dto';
 import { BaseService } from './bases/base.service';
 import { ConversationService } from './conversation.service';
 import { MessageService } from './message.service';

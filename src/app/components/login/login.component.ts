@@ -1,4 +1,4 @@
-import { LoginDto } from 'src/app/core/models/login-dto';
+import { LoginDto } from 'src/app/core/models/login.dto';
 import { AuthorizationService } from 'src/app/core/services/authorization.service';
 
 import { HttpClient } from '@angular/common/http';

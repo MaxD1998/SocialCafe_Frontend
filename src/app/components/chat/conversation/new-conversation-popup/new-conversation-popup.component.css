@@ -1,12 +1,15 @@
 :host {
+    display: flex;
+    flex-direction: column-reverse;
     position: absolute;
-    background-color: red;
     width: 25rem;
-    height: 30rem;
+    top: var(--nav-height);
     left: 3.875rem;
     bottom: 3.75rem;
 }
 
 .box {
-    height: inherit;
+    flex-grow: 1;
+    max-height: 30rem;
+    min-height: 15rem;
 }

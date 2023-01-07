@@ -1,4 +1,4 @@
-import { MessageDto } from 'src/app/core/models/message-dto';
+import { MessageDto } from 'src/app/core/models/message/message.dto';
 
 import { Component, OnInit } from '@angular/core';
 
@@ -59,9 +59,12 @@ export class MessageComponent implements OnInit {
       let message: MessageDto = {
         id: 0,
         conversationId: 0,
-        firstName: "Maks",
-        lastName: "Michalski",
-        text: this.message
+        text: this.message,
+        user: {
+          id: 0,
+          firstName: "Maks",
+          lastName: "Michalski",
+        }
       };
 
       this.messages.push(message);

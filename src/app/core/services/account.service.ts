@@ -2,7 +2,7 @@ import { CookieService } from 'ngx-cookie-service';
 
 import { Injectable } from '@angular/core';
 
-import { AuthorizeDto } from '../models/authorize-dto';
+import { AuthorizeDto } from '../models/authorize.dto';
 
 @Injectable({
   providedIn: 'root'

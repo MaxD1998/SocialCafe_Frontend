@@ -1,4 +1,4 @@
-import { ConversationDto } from 'src/app/core/models/conversation-dto';
+import { ConversationDto } from 'src/app/core/models/conversation/conversation.dto';
 import { AccountService } from 'src/app/core/services/account.service';
 
 import { Component, DoCheck, Input, OnInit } from '@angular/core';

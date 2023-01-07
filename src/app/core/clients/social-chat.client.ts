@@ -3,7 +3,7 @@ import { environment } from 'src/environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpTransportType, HubConnection, HubConnectionBuilder } from '@microsoft/signalr';
 
-import { MessageDto } from '../models/message-dto';
+import { MessageDto } from '../models/message/message.dto';
 import { AccountService } from '../services/account.service';
 import { ChatService } from '../services/chat.service';
 

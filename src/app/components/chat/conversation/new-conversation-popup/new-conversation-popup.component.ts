@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-new-conversation-popup',
@@ -6,7 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./new-conversation-popup.component.css']
 })
 export class NewConversationPopupComponent implements OnInit {
-  private valueChangeTimeout: NodeJS.Timeout;
+  private _valueChangeTimeout: NodeJS.Timeout;
+
+  @Input() friends;
 
   constructor() { }
 
@@ -14,8 +16,8 @@ export class NewConversationPopupComponent implements OnInit {
   }
   
   valueChange() {
-    clearTimeout(this.valueChangeTimeout);
-    this.valueChangeTimeout = setTimeout(() => {
+    clearTimeout(this._valueChangeTimeout);
+    this._valueChangeTimeout = setTimeout(() => {
       console.log("nigger");
     }, 1000)
   }

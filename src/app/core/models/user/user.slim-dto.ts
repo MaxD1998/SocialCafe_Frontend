@@ -1,4 +1,4 @@
-export interface UserDto {
+export interface UserSlimDto {
     id: number,
     firstName: string,
     lastName: string,
