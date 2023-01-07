@@ -9,7 +9,6 @@ import { Component, Input } from '@angular/core';
 })
 export class PostBubbleComponent {
 
-  @Input()
-  post: PostDto;
+  @Input() post: PostDto;
 
 }
