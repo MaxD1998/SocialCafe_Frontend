@@ -9,7 +9,28 @@
 }
 
 .box {
+    display: flex;
+    flex-direction: column;
     flex-grow: 1;
     max-height: 30rem;
     min-height: 15rem;
+    padding: 0rem 0.5rem;
+}
+
+.box div {
+    padding: 0.5rem 0;
+}
+
+button {
+    width: 100%;
+    border-color: rgba(var(--bs-secondary-rgb), var(--bs-border-opacity)) !important;
+}
+
+button:hover {
+    border-color: rgba(var(--bs-light-rgb), var(--bs-border-opacity)) !important
+}
+
+input:focus {
+    outline: none;
+    box-shadow: none;
 }

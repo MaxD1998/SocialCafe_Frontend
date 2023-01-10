@@ -4,13 +4,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { MainComponent } from './components/main/main.component';
 import { RegisterComponent } from './components/register/register.component';
-import { ComponentAddressConst } from './core/constants/component-address-const';
+import { ComponentRoute } from './core/constants/component.route';
 import { AuthorizationGuard } from './core/guards/authorization.guard';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: ComponentAddressConst.main,
+    redirectTo: ComponentRoute.main,
     pathMatch: 'full',
   },
   {

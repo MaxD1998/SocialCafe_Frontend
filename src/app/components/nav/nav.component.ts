@@ -1,4 +1,4 @@
-import { ComponentAddressConst } from 'src/app/core/constants/component-address-const';
+import { ComponentRoute } from 'src/app/core/constants/component.route';
 import { AccountService } from 'src/app/core/services/account.service';
 import { AuthorizationService } from 'src/app/core/services/authorization.service';
 
@@ -28,7 +28,7 @@ export class NavComponent implements DoCheck {
 
   logout(): void {
     this.authorizationService.logout();
-    this.router.navigateByUrl(ComponentAddressConst.login);
+    this.router.navigateByUrl(ComponentRoute.login);
   }
 
   private getUsername(): string {

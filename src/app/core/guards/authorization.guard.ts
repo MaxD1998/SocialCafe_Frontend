@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router, UrlTree } from '@angular/router';
 
-import { ComponentAddressConst } from '../constants/component-address-const';
+import { ComponentRoute } from '../constants/component.route';
 import { AccountService } from '../services/account.service';
 
 @Injectable({
@@ -11,13 +11,13 @@ import { AccountService } from '../services/account.service';
 export class AuthorizationGuard implements CanActivate {
 
   constructor(
-    private accountService: AccountService,
-    private router: Router) {
+    private _accountService: AccountService,
+    private _router: Router) {
   }
 
   canActivate(): boolean | UrlTree {
-    if (!this.accountService.isSignedIn()) {
-      return this.router.parseUrl(ComponentAddressConst.login);
+    if (!this._accountService.isSignedIn()) {
+      return this._router.parseUrl(ComponentRoute.login);
     }
     return true;
   }

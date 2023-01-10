@@ -1,17 +1,11 @@
-import { Observable } from 'rxjs';
-
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { SocialChatClient } from '../clients/social-chat.client';
-import { AuthorizationAddressConst } from '../constants/authorization-address-const';
-import { ComponentAddressConst } from '../constants/component-address-const';
+import { ComponentRoute } from '../constants/component.route';
 import { AuthorizationDataService } from '../data-services/authorization.data-service';
-import { AuthorizeDto } from '../models/authorize.dto';
 import { LoginDto } from '../models/login.dto';
 import { AccountService } from './account.service';
-import { BaseService } from './bases/base.service';
 
 @Injectable({
   providedIn: 'root'
@@ -39,7 +33,7 @@ export class AuthorizationService{
       .subscribe(response => {
         this._accountService.setUser(response);
         this._socialChatService.connect();
-        this._router.navigateByUrl(ComponentAddressConst.main);
+        this._router.navigateByUrl(ComponentRoute.main);
       });
   }
 

@@ -13,12 +13,11 @@ export abstract class BaseDataService {
   constructor(private http: HttpClient) {
   }
 
-  get<TResult>(address: string, withCredentials: boolean = false): Observable<TResult> {
+  protected get<TResult>(address: string, withCredentials: boolean = false): Observable<TResult> {
     return this.http.get<TResult>(this._api + address, { withCredentials: withCredentials });
   } 
 
-  post<TResult, TModel>(address: string, dto: TModel, withCredentials: boolean = false): Observable<TResult> {
+  protected post<TResult, TModel>(address: string, dto: TModel, withCredentials: boolean = false): Observable<TResult> {
     return this.http.post<TResult>(this._api + address, dto, { withCredentials: withCredentials });
   } 
-
 }

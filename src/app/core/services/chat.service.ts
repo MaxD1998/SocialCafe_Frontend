@@ -1,36 +1,31 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-import { ConversationAddressConst } from '../constants/conversation-address-const';
-import { ConversationDto } from '../models/conversation/conversation.dto';
 import { MessageDto } from '../models/message/message.dto';
-import { BaseService } from './bases/base.service';
 import { ConversationService } from './conversation.service';
 import { MessageService } from './message.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ChatService extends BaseService {
+export class ChatService {
   
-  constructor(private conversationService: ConversationService,
-    private messageService: MessageService,
-    http: HttpClient) {
-    super(http);
+  constructor(
+    private _conversationService: ConversationService,
+    private _messageService: MessageService) {
   }
 
   async addMessageAsync(dto: MessageDto) {
-    let conversation = this.conversationService.conversations.find(x => x.id == dto.conversationId);
+    let conversation = this._conversationService.conversations.find(x => x.id == dto.conversationId);
 
     if (conversation == null) {
-      conversation = await this.get<ConversationDto>(ConversationAddressConst.GetId + dto.conversationId).toPromise();
-      this.conversationService.conversations.push(conversation);
+      // conversation = await this.get<ConversationDto>(ConversationAddressConst.GetId + dto.conversationId).toPromise();
+      // this._conversationService.conversations.push(conversation);
     }
 
     if (!conversation.isActive) {
       return;
     }
 
-    this.messageService.messages.push(dto);
+    this._messageService.messages.push(dto);
   }
 }

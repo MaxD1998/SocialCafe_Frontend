@@ -1,22 +1,19 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 
-import { ConversationAddressConst } from '../constants/conversation-address-const';
-import { AuthorizeDto } from '../models/authorize.dto';
+import { ConversationDataService } from '../data-services/conversation.data-service';
 import { ConversationDto } from '../models/conversation/conversation.dto';
 import { AccountService } from './account.service';
-import { BaseService } from './bases/base.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ConversationService extends BaseService {
-
+export class ConversationService {
   private _conversations: ConversationDto[] = [];
 
-  constructor(private accountService: AccountService,
-    http: HttpClient) {
-    super(http);
+  constructor(
+    private _accountService: AccountService,
+    private _conversatonDataService: ConversationDataService) {
   }
   
   get conversations(): ConversationDto[] {
@@ -29,8 +26,8 @@ export class ConversationService extends BaseService {
   }
 
   getConversations() {
-    let user = this.accountService.getUser();
-    this.get<ConversationDto[]>(ConversationAddressConst.GetUserId + user.id)
+    let user = this._accountService.getUser();
+    this._conversatonDataService.getConversationsByUserId(user.id)
       .subscribe(response => {
         this._conversations = response;
       })

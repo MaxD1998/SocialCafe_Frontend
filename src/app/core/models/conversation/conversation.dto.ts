@@ -5,6 +5,8 @@ import { ConversationInputDto } from './conversation.input-dto';
 export interface ConversationDto extends ConversationInputDto {
     id: number,
     isActive: boolean,
-    conversationMembers: ConversationMemberDto[];
+
     message: MessageDto;
+    
+    conversationMembers: ConversationMemberDto[];
 }
