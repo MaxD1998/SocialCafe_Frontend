@@ -6,11 +6,13 @@
 }
 
 .circle {
+    flex-grow: 1;
     border-radius: 50%;
     background-color: green;
 }
 
 .circle-box {
+    display: flex;
     width: 4rem;
     padding: 0.5rem;
 }

@@ -2,33 +2,32 @@ import { CookieService } from 'ngx-cookie-service';
 
 import { Injectable } from '@angular/core';
 
-import { AuthorizeDto } from '../models/authorize.dto';
+import { CookiesNameConst } from '../constants/cookies-name.const';
+import { AuthorizeDto } from '../dtos/authorize.dto';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AccountService {
-  private readonly cookieItem = "RefreshToken"
-  private user: AuthorizeDto = null;
+  private _user: AuthorizeDto = null;
 
-  constructor(private cookieService: CookieService) {
-
+  constructor(private _cookieService: CookieService) {
   }
 
   getUser(): AuthorizeDto {
-    return this.user;
+    return this._user;
   }
 
   isSignedIn(): boolean {
-    return this.cookieService.get(this.cookieItem) != "";
+    return this._user !== null;
   }
 
   setUser(dto: AuthorizeDto): void {
-    this.user = dto;
+    this._user = dto;
   }
 
   removeUser(): void {
-    this.user = null;
-    this.cookieService.delete(this.cookieItem);
+    this._user = null;
+    this._cookieService.delete(CookiesNameConst.id);
   }
 }

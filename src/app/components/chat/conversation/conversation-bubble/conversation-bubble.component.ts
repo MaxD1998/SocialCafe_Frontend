@@ -1,7 +1,7 @@
-import { ConversationDto } from 'src/app/core/models/conversation/conversation.dto';
+import { ConversationDto } from 'src/app/core/dtos/conversation/conversation.dto';
 import { AccountService } from 'src/app/core/services/account.service';
 
-import { Component, DoCheck, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-conversation-bubble',

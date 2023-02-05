@@ -1,4 +1,4 @@
-import { ComponentRoute } from 'src/app/core/constants/component.route';
+import { ComponentRoute } from 'src/app/core/constants/routes/component.route';
 import { AccountService } from 'src/app/core/services/account.service';
 import { AuthorizationService } from 'src/app/core/services/authorization.service';
 

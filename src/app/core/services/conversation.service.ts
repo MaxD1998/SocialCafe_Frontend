@@ -1,8 +1,7 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { ConversationDataService } from '../data-services/conversation.data-service';
-import { ConversationDto } from '../models/conversation/conversation.dto';
+import { ConversationDto } from '../dtos/conversation/conversation.dto';
 import { AccountService } from './account.service';
 
 @Injectable({

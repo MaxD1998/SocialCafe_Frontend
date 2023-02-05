@@ -2,9 +2,9 @@ import { Observable } from 'rxjs/internal/Observable';
 
 import { Injectable } from '@angular/core';
 
-import { AuthorizationRoute } from '../constants/api-routes/authorization.route';
-import { AuthorizeDto } from '../models/authorize.dto';
-import { LoginDto } from '../models/login.dto';
+import { AuthorizationRoute } from '../constants/routes/api-routes/authorization.route';
+import { AuthorizeDto } from '../dtos/authorize.dto';
+import { LoginDto } from '../dtos/login.dto';
 import { BaseDataService } from './bases/base.data-service';
 
 @Injectable({

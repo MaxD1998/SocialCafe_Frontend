@@ -3,7 +3,6 @@ import { FriendInputDto } from './friend.input-dto';
 
 export interface FriendDto extends FriendInputDto {
     id: number;
-    friendId: number;
-    
-    friend: UserSlimDto
+    userId: number;
+    user: UserSlimDto
 }

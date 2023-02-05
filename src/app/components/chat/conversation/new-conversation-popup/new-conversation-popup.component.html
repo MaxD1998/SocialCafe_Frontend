@@ -1,11 +1,19 @@
 <div class="box border-secondary border bg-dark">
-    <div>
-        <input class="form-control border-secondary text-bg-dark" />
+    <div class="sub-box">
+        <input type="text" class="form-control border-secondary text-bg-dark" />
     </div>
-    <div class="flex-grow-1">
-
+    <div class="flex-grow-1 sub-box">
+        <div *ngFor="let friend of friends" class="friend-item">
+            <div class="circle"></div>
+            <div class="flex-grow-1">
+                <span class="text-light">{{friend.user.firstName}} {{friend.user.lastName}}</span>
+            </div>
+            <div class="checkbox-box">
+                <input type="checkbox"/>
+            </div>
+        </div>
     </div>
-    <div>
+    <div class="sub-box">
         <button class="btn btn-outline-light">Utwórz</button>
     </div>
 </div>

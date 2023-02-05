@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { MessageDto } from '../models/message/message.dto';
+import { MessageDto } from '../dtos/message/message.dto';
 import { ConversationService } from './conversation.service';
 import { MessageService } from './message.service';
 

@@ -1,4 +1,4 @@
-import { PostDto } from 'src/app/core/models/post/post.dto';
+import { PostDto } from 'src/app/core/dtos/post/post.dto';
 
 import { Component, Input } from '@angular/core';
 

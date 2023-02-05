@@ -25,6 +25,7 @@ export class ErrorInterceptor extends BaseInterceptor{
             this.accountService.removeUser();
             break;
         }
+        
         return throwError(error);
       }));
   }
