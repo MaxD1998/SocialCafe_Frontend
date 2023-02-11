@@ -1,4 +1,4 @@
-import { ConversationDto } from 'src/app/core/dtos/conversation/conversation.dto';
+import { ConversationModel } from 'src/app/core/models/conversations/conversation.model';
 import { AccountService } from 'src/app/core/services/account.service';
 
 import { Component, Input, OnInit } from '@angular/core';
@@ -10,7 +10,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ConversationBubbleComponent implements OnInit{
 
-  @Input() conversation: ConversationDto;
+  @Input() conversation: ConversationModel;
 
   message: string;
   name: string = "";

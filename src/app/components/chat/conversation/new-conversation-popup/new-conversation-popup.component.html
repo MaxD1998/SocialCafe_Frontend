@@ -6,14 +6,14 @@
         <div *ngFor="let friend of friends" class="friend-item">
             <div class="circle"></div>
             <div class="flex-grow-1">
-                <span class="text-light">{{friend.user.firstName}} {{friend.user.lastName}}</span>
+                <span class="text-light">{{friend.username}}</span>
             </div>
             <div class="checkbox-box">
-                <input type="checkbox"/>
+                <input #checkbox type="checkbox" (change)="onChangeHandler(checkbox, friend)" [checked]="friend.isSelected"/>
             </div>
         </div>
     </div>
     <div class="sub-box">
-        <button class="btn btn-outline-light">Utwórz</button>
+        <button class="btn btn-outline-light" (click)="create()">Utwórz</button>
     </div>
 </div>

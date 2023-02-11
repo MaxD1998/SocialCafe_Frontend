@@ -10,7 +10,7 @@ import { BaseDataService } from './bases/base.data-service';
   providedIn: 'root'
 })
 export class FriendDataService extends BaseDataService {
-  getFriendsByUserId(id: number): Observable<FriendDto[]> {
+  getsByUserId(id: number): Observable<FriendDto[]> {
     return this.get<FriendDto[]>(FriendRoute.getUserId + id);
   }
 }

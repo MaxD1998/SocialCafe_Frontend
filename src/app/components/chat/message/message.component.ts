@@ -1,4 +1,8 @@
 import { MessageDto } from 'src/app/core/dtos/message/message.dto';
+import { MessageInputDto } from 'src/app/core/dtos/message/message.input-dto';
+import { AccountService } from 'src/app/core/services/account.service';
+import { ChatService } from 'src/app/core/services/chat.service';
+import { MessageService } from 'src/app/core/services/message.service';
 
 import { Component, OnInit } from '@angular/core';
 
@@ -9,9 +13,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MessageComponent implements OnInit {
   message: string = "";
-  messages: MessageDto[] = [];
 
-  constructor() { }
+  private _userId;
+
+  constructor(
+    public messageService: MessageService,
+    private _acconutService: AccountService,
+    private _chatService: ChatService) { 
+      const user = this._acconutService.getUser();
+      this._userId = user.id;
+    }
 
   ngOnInit(): void {
   }
@@ -45,29 +56,23 @@ export class MessageComponent implements OnInit {
 
   private sendMessage(element: HTMLDivElement){
       this.message = element.outerText;
-      console.log(this.message);
       this.message = this.message
         .trimStart()
         .trimEnd();
-      console.log(this.message);
         
       element.textContent = null;
 
       if (this.message === "") 
         return false;
 
-      let message: MessageDto = {
-        id: 0,
-        conversationId: 0,
+      const message: MessageInputDto = {
+        conversationId: this.messageService.conversation.id,
+        userId: this._userId,
         text: this.message,
-        user: {
-          id: 0,
-          firstName: "Maks",
-          lastName: "Michalski",
-        }
       };
 
-      this.messages.push(message);
+      this._chatService.addMessage(message)
+
       return false;
   }
 }

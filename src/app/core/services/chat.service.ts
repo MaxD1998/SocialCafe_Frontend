@@ -1,6 +1,12 @@
+import { map } from 'rxjs/operators';
+
 import { Injectable } from '@angular/core';
 
-import { MessageDto } from '../dtos/message/message.dto';
+import { SocialChatClient } from '../clients/social-chat.client';
+import { ConversationDataService } from '../data-services/conversation.data-service';
+import { ConversationInputExtendDto } from '../dtos/conversation/conversation.input-extend-dto';
+import { MessageInputDto } from '../dtos/message/message.input-dto';
+import { DtoToModelProfile } from '../map-profiles/dto-to-model.profile';
 import { ConversationService } from './conversation.service';
 import { MessageService } from './message.service';
 
@@ -10,22 +16,28 @@ import { MessageService } from './message.service';
 export class ChatService {
   
   constructor(
+    private _conversationDataService: ConversationDataService,
     private _conversationService: ConversationService,
-    private _messageService: MessageService) {
+    private _messageService: MessageService,
+    private _socialChatClient: SocialChatClient) {
   }
 
-  async addMessageAsync(dto: MessageDto) {
-    let conversation = this._conversationService.conversations.find(x => x.id == dto.conversationId);
-
-    if (conversation == null) {
-      // conversation = await this.get<ConversationDto>(ConversationAddressConst.GetId + dto.conversationId).toPromise();
-      // this._conversationService.conversations.push(conversation);
+  addMessage(dto: MessageInputDto) {
+    if (dto.conversationId === 0) {
+      this.createConversation(this._messageService.conversation, dto);
+    } else {
+      this._socialChatClient.createMessage(dto);
     }
+  }
 
-    if (!conversation.isActive) {
-      return;
-    }
-
-    this._messageService.messages.push(dto);
+  private createConversation(conversation: ConversationInputExtendDto, message: MessageInputDto): void {
+    this._conversationDataService.createExtend(conversation)
+      .pipe(map(value => DtoToModelProfile.mapConversationDtoToConversationModel(value)))
+      .subscribe(response => {
+        this._messageService.conversation = response;
+        this._conversationService.addConversation(response);
+        message.conversationId = response.id;
+        this._socialChatClient.createMessage(message);
+      });
   }
 }

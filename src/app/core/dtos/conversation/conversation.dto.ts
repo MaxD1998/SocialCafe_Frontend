@@ -4,9 +4,7 @@ import { ConversationInputDto } from './conversation.input-dto';
 
 export interface ConversationDto extends ConversationInputDto {
     id: number,
-    isActive: boolean,
-
-    message: MessageDto;
     
+    message: MessageDto;
     conversationMembers: ConversationMemberDto[];
 }

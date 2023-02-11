@@ -4,28 +4,29 @@ import { Injectable } from '@angular/core';
 import { HttpTransportType, HubConnection, HubConnectionBuilder } from '@microsoft/signalr';
 
 import { MessageDto } from '../dtos/message/message.dto';
+import { MessageInputDto } from '../dtos/message/message.input-dto';
 import { AccountService } from '../services/account.service';
-import { ChatService } from '../services/chat.service';
+import { MessageService } from '../services/message.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SocialChatClient {
 
-  private hubConnection: HubConnection;
+  private _hubConnection: HubConnection;
 
   constructor(
-    private accountService: AccountService, 
-    private messageService: ChatService) { }
+    private _accountService: AccountService, 
+    private _messageService: MessageService) { }
 
   connect() {
-    let user = this.accountService.getUser();
+    let user = this._accountService.getUser();
     
     if (user == null) {
       return;
     }
 
-    this.hubConnection = new HubConnectionBuilder()
+    this._hubConnection = new HubConnectionBuilder()
       .withAutomaticReconnect()
       .withUrl(environment.socialChat, {
         accessTokenFactory: () => user.token,
@@ -34,18 +35,22 @@ export class SocialChatClient {
       })
       .build();
 
-    this.hubConnection.start();
+    this._hubConnection.start();
     
-    this.registerRecieveMessageHandler(this.hubConnection);
+    this.registerRecieveMessageHandler(this._hubConnection);
+  }
+
+  createMessage(dto: MessageInputDto) {
+    this._hubConnection.invoke("CreateMessageAsync", dto);
   }
 
   disconnect() {
-    this.hubConnection.stop();
+    this._hubConnection.stop();
   }
   
   private registerRecieveMessageHandler(hubConnection: HubConnection) {
     hubConnection.on("RecieveMessageHandler", (response: MessageDto) => {
-      this.messageService.addMessageAsync(response);
+      this._messageService.addMessage(response);
     })
   }
 

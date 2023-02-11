@@ -9,10 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConversationComponent implements OnInit {
   isVisiblePopup: boolean = false;
+  
   constructor(public conversationService: ConversationService) { }
 
   ngOnInit(): void {
-    this.conversationService.getConversations();
+    this.conversationService.initConversations();
   }
 
   openClosePopup() {
