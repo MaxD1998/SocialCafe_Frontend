@@ -6,7 +6,7 @@ import { SocialChatClient } from '../clients/social-chat.client';
 import { ConversationDataService } from '../data-services/conversation.data-service';
 import { ConversationInputExtendDto } from '../dtos/conversation/conversation.input-extend-dto';
 import { MessageInputDto } from '../dtos/message/message.input-dto';
-import { DtoToModelProfile } from '../map-profiles/dto-to-model.profile';
+import { ConversationDtoProfile } from '../map-profiles/conversation-dto.profile';
 import { ConversationService } from './conversation.service';
 import { MessageService } from './message.service';
 
@@ -32,7 +32,7 @@ export class ChatService {
 
   private createConversation(conversation: ConversationInputExtendDto, message: MessageInputDto): void {
     this._conversationDataService.createExtend(conversation)
-      .pipe(map(value => DtoToModelProfile.mapConversationDtoToConversationModel(value)))
+      .pipe(map(value => ConversationDtoProfile.mapToConversationModel(value)))
       .subscribe(response => {
         this._messageService.conversation = response;
         this._conversationService.addConversation(response);

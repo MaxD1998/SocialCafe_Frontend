@@ -3,7 +3,7 @@ import { map } from 'rxjs/internal/operators/map';
 import { Injectable } from '@angular/core';
 
 import { ConversationDataService } from '../data-services/conversation.data-service';
-import { DtoToModelProfile } from '../map-profiles/dto-to-model.profile';
+import { ConversationDtoProfile } from '../map-profiles/conversation-dto.profile';
 import { ConversationModel } from '../models/conversations/conversation.model';
 import { AccountService } from './account.service';
 
@@ -31,7 +31,7 @@ export class ConversationService {
   initConversations(): void {
     let user = this._accountService.getUser();
     this._conversatonDataService.getsByUserId(user.id)
-      .pipe(map(values => values.map(x => DtoToModelProfile.mapConversationDtoToConversationModel(x))))
+      .pipe(map(values => values.map(x => ConversationDtoProfile.mapToConversationModel(x))))
       .subscribe(response => this._conversations = response ?? []);
   }
 

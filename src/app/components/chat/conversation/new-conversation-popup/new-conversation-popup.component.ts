@@ -38,6 +38,17 @@ export class NewConversationPopupComponent implements OnInit {
   }
   
   create() {
+    this.createConversation();
+    this.deactiveConversation();
+    this._messageService.messages = [];
+    this.isVisibleChange.emit(!this.isVisible);
+  }
+
+  onChangeHandler(element: HTMLInputElement, item: FriendSelectModel) {
+    item.isSelected = element.checked;
+  }
+
+  private createConversation() {
     this._messageService.conversation = {
       id: 0,
       isActive: true,
@@ -52,18 +63,14 @@ export class NewConversationPopupComponent implements OnInit {
 
     this._messageService.conversation.conversationMembers
       .push(this.mapToConversationMember(this.userId));
+  }
 
+  private deactiveConversation() {
     const conversation = this._conversationService.conversations.find(x => x.isActive)
 
     if (conversation) {
       conversation.isActive = false;
     }
-
-    this.isVisibleChange.emit(!this.isVisible);
-  }
-
-  onChangeHandler(element: HTMLInputElement, item: FriendSelectModel) {
-    item.isSelected = element.checked;
   }
 
   private initSelectListItems()

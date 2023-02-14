@@ -1,4 +1,9 @@
 <div class="bg-dark flex-grow-1 d-flex flex-column">
+    <div class="header border-secondary border-bottom">
+        <span class="text-white">
+            {{messageService.conversation?.name}}
+        </span>
+    </div>
     <div class="text-board">
         <app-message-bubble *ngFor="let message of messageService.messages" [message]="message"></app-message-bubble>
     </div>

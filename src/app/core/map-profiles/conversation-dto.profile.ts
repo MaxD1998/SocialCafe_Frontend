@@ -1,9 +1,9 @@
 import { ConversationDto } from '../dtos/conversation/conversation.dto';
 import { ConversationModel } from '../models/conversations/conversation.model';
 
-export class DtoToModelProfile {
-    static mapConversationDtoToConversationModel(input: ConversationDto): ConversationModel {
-        return input !== null ? {
+export class ConversationDtoProfile {
+    static mapToConversationModel(input: ConversationDto): ConversationModel {
+        return input ? {
             conversationMembers: input.conversationMembers,
             isActive: false,
             id: input.id,
