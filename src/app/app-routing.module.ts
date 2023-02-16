@@ -3,15 +3,14 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { LoginComponent } from './components/login/login.component';
 import { MainComponent } from './components/main/main.component';
-import { MessageComponent } from './components/message/message.component';
 import { RegisterComponent } from './components/register/register.component';
-import { ComponentAddressConst } from './core/constants/component-address-const';
+import { ComponentRoute } from './core/constants/routes/component.route';
 import { AuthorizationGuard } from './core/guards/authorization.guard';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: ComponentAddressConst.main,
+    redirectTo: ComponentRoute.main,
     pathMatch: 'full',
   },
   {
@@ -19,7 +18,10 @@ const routes: Routes = [
     canActivate: [AuthorizationGuard],
     children: [
       { path: 'main', component: MainComponent },
-      { path: 'message', component: MessageComponent },
+      { 
+        path: 'chat',
+        loadChildren: () => import('./components/chat/chat.module').then(m => m.ChatModule)
+      },
     ]
   },
   { path: 'login', component: LoginComponent },

@@ -1,10 +1,9 @@
-import { LoginDto } from 'src/app/core/models/login-dto';
+import { LoginDto } from 'src/app/core/dtos/login.dto';
 import { AuthorizationService } from 'src/app/core/services/authorization.service';
 
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',

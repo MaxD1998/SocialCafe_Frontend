@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  api: "https:localhost:6001/"
+  api: "https://localhost:6001/",
+  socialChat: "https://localhost:6001/SocialChat",
 };
 
 /*

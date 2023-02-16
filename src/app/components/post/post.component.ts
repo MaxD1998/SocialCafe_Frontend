@@ -1,4 +1,4 @@
-import { PostDto } from 'src/app/core/models/post-dto';
+import { PostDto } from 'src/app/core/dtos/post/post.dto';
 
 import { Component, OnInit } from '@angular/core';
 
@@ -11,9 +11,14 @@ export class PostComponent implements OnInit {
 
   posts = [];
   initPost: PostDto = {
-    firstName: "Maks",
-    lastName: "Michalski",
-    text: "Tutaj jest treść potencjalnych postów które może w swojej karierze zobaczą światło dzienne"
+    id: 0,
+    text: "Tutaj jest treść potencjalnych postów które może w swojej karierze zobaczą światło dzienne",
+    userId: 0,
+    user: {
+      id: 0,
+      firstName: "Maks",
+      lastName: "Michalski",
+    }
   };
 
   constructor() { }

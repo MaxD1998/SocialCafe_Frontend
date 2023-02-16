@@ -1,17 +1,17 @@
 import { Observable, throwError } from 'rxjs';
 import { catchError, switchMap } from 'rxjs/operators';
 
-import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
+import { HttpEvent, HttpHandler, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
+import { AuthorizationDataService } from '../data-services/authorization.data-service';
 import { AccountService } from '../services/account.service';
-import { AuthorizationService } from '../services/authorization.service';
 import { BaseInterceptor } from './base.interceptor';
 
 @Injectable()
 export class ErrorInterceptor extends BaseInterceptor{
 
-  constructor(accountService: AccountService, private authorizationService: AuthorizationService) {
+  constructor(accountService: AccountService, private authorizationDataService: AuthorizationDataService) {
     super(accountService)
   }
 
@@ -25,12 +25,13 @@ export class ErrorInterceptor extends BaseInterceptor{
             this.accountService.removeUser();
             break;
         }
+        
         return throwError(error);
       }));
   }
 
   private getToken(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    return this.authorizationService.getToken().pipe(
+    return this.authorizationDataService.getToken().pipe(
       switchMap((value) => {
         this.accountService.setUser(value);
         return this.setAuthHeader(request, next);

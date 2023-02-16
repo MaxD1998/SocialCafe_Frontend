@@ -1,33 +1,33 @@
+import { CookieService } from 'ngx-cookie-service';
+
 import { Injectable } from '@angular/core';
 
-import { AuthorizeDto } from '../models/authorize-dto';
+import { CookiesNameConst } from '../constants/cookies-name.const';
+import { AuthorizeDto } from '../dtos/authorize.dto';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AccountService {
-  private readonly userItem = "user"
-  private user: AuthorizeDto = null;
+  private _user: AuthorizeDto = null;
+
+  constructor(private _cookieService: CookieService) {
+  }
 
   getUser(): AuthorizeDto {
-    return this.user;
+    return this._user;
   }
 
   isSignedIn(): boolean {
-    return this.user != null
-  }
-
-  loadUser() {
-    this.user = JSON.parse(localStorage.getItem(this.userItem));
+    return this._user !== null;
   }
 
   setUser(dto: AuthorizeDto): void {
-    this.user = dto;
-    localStorage.setItem(this.userItem, JSON.stringify(dto));
+    this._user = dto;
   }
 
   removeUser(): void {
-    this.user = null;
-    localStorage.removeItem(this.userItem);
+    this._user = null;
+    this._cookieService.delete(CookiesNameConst.id);
   }
 }
