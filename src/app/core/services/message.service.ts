@@ -15,6 +15,10 @@ export class MessageService {
   private _conversation: ConversationModel;
   
   get conversation(): ConversationModel{
+    if (!this._conversation) {
+      return null;
+    }
+    
     const user = this._accountService.getUser();
     const result = ConversationModelProfile.mapToConversationModel(this._conversation)
     result.name = ConversationNameHelper.setName(result, user.id);

@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 
 import { SocialChatClient } from '../clients/social-chat.client';
 import { ConversationDataService } from '../data-services/conversation.data-service';
-import { ConversationInputExtendDto } from '../dtos/conversation/conversation.input-extend-dto';
+import { ConversationInputDto } from '../dtos/conversation/conversation.input-dto';
 import { MessageInputDto } from '../dtos/message/message.input-dto';
 import { ConversationDtoProfile } from '../map-profiles/conversation-dto.profile';
 import { ConversationService } from './conversation.service';
@@ -30,8 +30,8 @@ export class ChatService {
     }
   }
 
-  private createConversation(conversation: ConversationInputExtendDto, message: MessageInputDto): void {
-    this._conversationDataService.createExtend(conversation)
+  private createConversation(conversation: ConversationInputDto, message: MessageInputDto): void {
+    this._conversationDataService.create(conversation)
       .pipe(map(value => ConversationDtoProfile.mapToConversationModel(value)))
       .subscribe(response => {
         this._messageService.conversation = response;

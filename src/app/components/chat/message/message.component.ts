@@ -1,4 +1,3 @@
-import { MessageDto } from 'src/app/core/dtos/message/message.dto';
 import { MessageInputDto } from 'src/app/core/dtos/message/message.input-dto';
 import { AccountService } from 'src/app/core/services/account.service';
 import { ChatService } from 'src/app/core/services/chat.service';

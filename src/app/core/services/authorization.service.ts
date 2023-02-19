@@ -23,7 +23,7 @@ export class AuthorizationService{
     private _socialChatService: SocialChatClient,
     private _router: Router) {
   }
-  authorize(): void {
+  async authorize(): Promise<void> {
     const id: number = +this._cookieService.get(CookiesNameConst.id);
 
     if (id === 0) {
@@ -38,13 +38,14 @@ export class AuthorizationService{
     }
 
     this._accountService.setUser(tempUser);
-    this._authorizationDataService.getToken()
-      .subscribe(response => {
-        this._accountService.setUser(response);
-        this._socialChatService.connect();
-      }, () => {
-        this._accountService.removeUser();
-      });
+    const response = await this._authorizationDataService.getToken().toPromise()
+
+    if (response) {
+      this._accountService.setUser(response);
+      this._socialChatService.connect()
+    } else {
+      this._accountService.removeUser();
+    }
   }
 
   login(dto: LoginDto): void {
