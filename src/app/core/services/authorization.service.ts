@@ -38,13 +38,16 @@ export class AuthorizationService{
     }
 
     this._accountService.setUser(tempUser);
-    const response = await this._authorizationDataService.getToken().toPromise()
+    const response = await this._authorizationDataService
+      .getToken()
+      .toPromise()
+      .catch(() => this.logout());
 
     if (response) {
       this._accountService.setUser(response);
       this._socialChatService.connect()
     } else {
-      this._accountService.removeUser();
+      this.logout();
     }
   }
 
@@ -59,5 +62,6 @@ export class AuthorizationService{
 
   logout(): void {
     this._accountService.removeUser();
+    this._router.navigateByUrl(ComponentRoute.login);
   }
 }

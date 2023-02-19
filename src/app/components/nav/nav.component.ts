@@ -16,23 +16,23 @@ export class NavComponent implements DoCheck {
   username: string 
 
   constructor(
-    private accountService: AccountService, 
-    private authorizationService: AuthorizationService,
-    private router: Router) { }
+    private _accountService: AccountService, 
+    private _authorizationService: AuthorizationService,
+    private _router: Router) { }
 
   ngDoCheck(): void {
-    this.isSignedIn = this.accountService.isSignedIn();
+    this.isSignedIn = this._accountService.isSignedIn();
     this.username = this.getUsername();
   }
   
 
   logout(): void {
-    this.authorizationService.logout();
-    this.router.navigateByUrl(ComponentRoute.login);
+    this._authorizationService.logout();
+    this._router.navigateByUrl(ComponentRoute.login);
   }
 
   private getUsername(): string {
-    let user = this.accountService.getUser();
+    let user = this._accountService.getUser();
 
     if(user != null) {
       return user.username
