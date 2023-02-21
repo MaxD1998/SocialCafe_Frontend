@@ -1,11 +1,3 @@
-<div class="d-flex flex-grow-1 rounded-top bg-dark">
-    <div class="box">
-        <app-friend-bubble></app-friend-bubble>
-        <app-friend-bubble></app-friend-bubble>
-        <app-friend-bubble></app-friend-bubble>
-        <app-friend-bubble></app-friend-bubble>
-        <app-friend-bubble></app-friend-bubble>
-        <app-friend-bubble></app-friend-bubble>
-        <app-friend-bubble></app-friend-bubble>
-    </div>
+<div class="box  rounded-top bg-dark">
+    <app-friend-bubble [friend]="friend" *ngFor="let friend of friends"></app-friend-bubble>
 </div>

@@ -6,6 +6,7 @@
 
 .box {
     display: flex;
+    flex-grow: 1;
     flex-wrap: wrap;
     flex-direction: row;
     align-content: flex-start;
