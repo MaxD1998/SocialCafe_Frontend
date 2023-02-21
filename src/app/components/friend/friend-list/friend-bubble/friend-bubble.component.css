@@ -1,0 +1,42 @@
+:host {
+    display: flex;
+    padding: 1rem;
+    height: 25.5rem;
+    width: 15.25rem;
+}
+
+.box {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    background-color: white;
+    overflow-y: auto;
+}
+
+.detail-box {
+    padding: 0.5rem 1rem;
+    flex-grow: 1;
+}
+
+.detail-box div {
+    padding: 0.25rem 0;
+}
+
+.photo-box {
+    width: inherit;
+    height: 13.5rem;
+    background-color: green;
+}
+
+div button {
+    width: 100%;
+}
+
+span {
+    display: inline-block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 11.25rem;
+    font-weight: 400;
+}
