@@ -6,21 +6,39 @@
     padding: 0 1rem;
 }
 
-.search-box {
-    display: flex;
-    height: 8rem;
-    width: 100%;
-    padding-bottom: 1rem;
-}
-
 .list-box {
     display: flex;
     flex-grow: 1;
     padding-top: 1rem;
 }
 
-.result-box {
+.search-box {
+    display: flex;
+    height: 9rem;
+    width: 100%;
+    padding-bottom: 1rem;
+}
+
+.sub-box div {
+    padding-bottom: 1rem;
+}
+
+.sub-box {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    padding: 1rem;
+}
+
+button {
+    border-color: rgba(var(--bs-secondary-rgb)) !important;
+}
+
+button:hover {
+    border-color: rgba(var(--bs-light-rgb)) !important
+}
+
+input:focus {
+    outline: none;
+    box-shadow: none;
 }

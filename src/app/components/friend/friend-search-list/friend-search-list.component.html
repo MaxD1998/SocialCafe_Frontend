@@ -1,10 +1,13 @@
 <div class="search-box">
-    <div class="result-box rounded bg-dark">
-
+    <div class="sub-box rounded bg-dark">
+        <div>
+            <input #input type="text" class="form-control border-secondary text-bg-dark" placeholder="Wpisz imię i nazwisko..." />
+        </div>
+        <button class="btn btn-outline-light" (click)="search(input)">Szukaj</button>
     </div>
 </div>
 <div class="list-box">
-    <div class="result-box rounded-top bg-dark">
-
+    <div class="sub-box rounded-top bg-dark">
+        <app-friend-select-item [user]="user" *ngFor="let user of users"></app-friend-select-item>
     </div>
 </div>

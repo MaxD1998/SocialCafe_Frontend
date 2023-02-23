@@ -1,1 +1,7 @@
-<p>friend-select-item works!</p>
+<div class="circle"></div>
+<div class="flex-grow-1">
+    <span class="text-light">{{user.firstName}} {{user.lastName}}</span>
+</div>
+<div class="button-box">
+    <button class="btn btn-outline-light" [disabled]="isDisable" (click)="add()">Dodaj</button>
+</div>

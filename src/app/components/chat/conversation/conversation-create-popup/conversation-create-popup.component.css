@@ -23,11 +23,11 @@
 
 button {
     width: 100%;
-    border-color: rgba(var(--bs-secondary-rgb), var(--bs-border-opacity)) !important;
+    border-color: rgba(var(--bs-secondary-rgb)) !important;
 }
 
 button:hover {
-    border-color: rgba(var(--bs-light-rgb), var(--bs-border-opacity)) !important
+    border-color: rgba(var(--bs-light-rgb)) !important;
 }
 
 input:focus {

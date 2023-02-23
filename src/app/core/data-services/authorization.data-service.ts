@@ -12,7 +12,7 @@ import { BaseDataService } from './bases/base.data-service';
 })
 export class AuthorizationDataService extends BaseDataService {
   getToken(): Observable<AuthorizeDto> {
-    return this.get<AuthorizeDto>(AuthorizationRoute.refreshToken, true)
+    return this.get<AuthorizeDto>(AuthorizationRoute.refreshToken, { withCredentials: true })
   }
 
   login(dto: LoginDto): Observable<AuthorizeDto> {

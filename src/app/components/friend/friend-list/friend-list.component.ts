@@ -22,6 +22,15 @@ export class FriendListComponent implements OnInit {
     this.initFriends();
   }
 
+  removeFriend(id: number) {
+    this._friendDataService.deleteUserFriend(id)
+      .subscribe(response => {
+        if (response) {
+          this.friends = this.friends.filter(x => x.id !== id);
+        }
+      });
+  }
+
   private initFriends() {
     const user = this._accountService.getUser();
     this._friendDataService.getsByUserId(user.id)
