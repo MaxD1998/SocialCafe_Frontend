@@ -4,15 +4,15 @@ import { Injectable } from '@angular/core';
 
 import { ConversationRoute } from '../constants/routes/api-routes/conversation.route';
 import { ConversationDto } from '../dtos/conversation/conversation.dto';
-import { ConversationInputExtendDto } from '../dtos/conversation/conversation.input-extend-dto';
+import { ConversationInputDto } from '../dtos/conversation/conversation.input-dto';
 import { BaseDataService } from './bases/base.data-service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ConversationDataService extends BaseDataService {
-  createExtend(dto: ConversationInputExtendDto): Observable<ConversationDto> {
-    return this.post<ConversationDto, ConversationInputExtendDto>(ConversationRoute.createExtend, dto)
+  create(dto: ConversationInputDto): Observable<ConversationDto> {
+    return this.post<ConversationDto, ConversationInputDto>(ConversationRoute.create, dto)
   }
 
   getById(id: number): Observable<ConversationDto> {

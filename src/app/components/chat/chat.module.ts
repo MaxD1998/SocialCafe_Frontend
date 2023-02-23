@@ -6,10 +6,12 @@ import { ChatComponent } from './chat.component';
 import {
     ConversationBubbleComponent
 } from './conversation/conversation-bubble/conversation-bubble.component';
+import {
+    ConversationCreatePopupComponent
+} from './conversation/conversation-create-popup/conversation-create-popup.component';
 import { ConversationComponent } from './conversation/conversation.component';
 import { MessageBubbleComponent } from './message/message-bubble/message-bubble.component';
 import { MessageComponent } from './message/message.component';
-import { NewConversationPopupComponent } from './conversation/new-conversation-popup/new-conversation-popup.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,7 @@ import { NewConversationPopupComponent } from './conversation/new-conversation-p
     ConversationComponent,
     MessageBubbleComponent,
     MessageComponent,
-    NewConversationPopupComponent,
+    ConversationCreatePopupComponent,
   ],
   imports: [
     CommonModule,

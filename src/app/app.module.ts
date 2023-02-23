@@ -6,6 +6,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ChatModule } from './components/chat/chat.module';
+import { FriendModule } from './components/friend/friend.module';
 import { LoginComponent } from './components/login/login.component';
 import { MainComponent } from './components/main/main.component';
 import { NavComponent } from './components/nav/nav.component';
@@ -31,6 +32,7 @@ import { AuthorizationService } from './core/services/authorization.service';
     HttpClientModule,
     AppRoutingModule,
     ChatModule,
+    FriendModule,
     ReactiveFormsModule
   ],
   providers: [
@@ -39,7 +41,7 @@ import { AuthorizationService } from './core/services/authorization.service';
     { 
       provide: APP_INITIALIZER, 
       useFactory(authorizationService: AuthorizationService) {
-        return () => authorizationService.authorize();
+        return async () => await authorizationService.authorize();
       },
       deps: [ AuthorizationService ],
       multi: true

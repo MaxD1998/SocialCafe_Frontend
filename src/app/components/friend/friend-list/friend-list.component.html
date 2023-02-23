@@ -1,0 +1,5 @@
+<div class="box  rounded-top bg-dark">
+    <app-friend-bubble *ngFor="let friend of friends"
+    [friend]="friend"
+    (remove)="removeFriend($event)"></app-friend-bubble>
+</div>

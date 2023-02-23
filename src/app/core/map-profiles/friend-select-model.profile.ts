@@ -1,5 +1,4 @@
 import { ConversationMemberDto } from '../dtos/conversation-member/conversation-member.dto';
-import { ConversationModel } from '../models/conversations/conversation.model';
 import { FriendSelectModel } from '../models/friends/friend.select-model';
 
 export class FriendSelectModelProfile {

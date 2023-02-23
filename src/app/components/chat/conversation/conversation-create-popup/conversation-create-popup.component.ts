@@ -1,9 +1,6 @@
 import { map } from 'rxjs/operators';
 import { FriendDataService } from 'src/app/core/data-services/friend.data-service';
 import { AuthorizeDto } from 'src/app/core/dtos/authorize.dto';
-import {
-    ConversationMemberDto
-} from 'src/app/core/dtos/conversation-member/conversation-member.dto';
 import { AuthorizeDtoProfile } from 'src/app/core/map-profiles/authorize-dto.profile';
 import { FriendSelectModelProfile } from 'src/app/core/map-profiles/friend-select-model.profile';
 import { FriendSelectModel } from 'src/app/core/models/friends/friend.select-model';
@@ -14,11 +11,11 @@ import { MessageService } from 'src/app/core/services/message.service';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-new-conversation-popup',
-  templateUrl: './new-conversation-popup.component.html',
-  styleUrls: ['./new-conversation-popup.component.css']
+  selector: 'app-conversation-create-popup',
+  templateUrl: './conversation-create-popup.component.html',
+  styleUrls: ['./conversation-create-popup.component.css']
 })
-export class NewConversationPopupComponent implements OnInit {
+export class ConversationCreatePopupComponent implements OnInit {
   @Input() isVisible: boolean;
 
   @Output() isVisibleChange = new EventEmitter<boolean>();

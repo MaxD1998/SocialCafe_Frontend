@@ -1,6 +1,5 @@
-export interface FriendSelectModel {
-    id: number;
+import { FriendModel } from './friend.model';
+
+export interface FriendSelectModel extends FriendModel {
     isSelected: boolean;
-    userid: number;
-    username: string;
 }
