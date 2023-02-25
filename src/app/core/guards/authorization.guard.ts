@@ -16,8 +16,10 @@ export class AuthorizationGuard implements CanActivate {
   }
 
   canActivate(): boolean | UrlTree {
-    if (!this._accountService.isSignedIn())
+    if (!this._accountService.isSignedIn()) {
       return this._router.parseUrl(ComponentRoute.login);
+    }
+    
     return true;
   }
 }

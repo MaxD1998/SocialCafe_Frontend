@@ -1,8 +1,5 @@
-import { CookieService } from 'ngx-cookie-service';
-
 import { Injectable } from '@angular/core';
 
-import { CookiesNameConst } from '../constants/cookies-name.const';
 import { AuthorizeDto } from '../dtos/authorize.dto';
 
 @Injectable({
@@ -10,9 +7,6 @@ import { AuthorizeDto } from '../dtos/authorize.dto';
 })
 export class AccountService {
   private _user: AuthorizeDto = null;
-
-  constructor(private _cookieService: CookieService) {
-  }
 
   getUser(): AuthorizeDto {
     return this._user;
@@ -28,6 +22,5 @@ export class AccountService {
 
   removeUser(): void {
     this._user = null;
-    this._cookieService.delete(CookiesNameConst.id);
   }
 }
