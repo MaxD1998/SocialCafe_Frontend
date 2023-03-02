@@ -22,14 +22,22 @@ export class ConversationBubbleComponent implements OnInit, DoCheck{
   }
 
   ngDoCheck(): void {
-    this.setBgColor();
+    this.init();
   }
 
   ngOnInit(): void {
+    this.init();
+  }
+
+  init() {
+    if (!this.conversation){
+      return;
+    }
+
     const user = this.accountService.getUser();
     this.message = this.conversation.message?.text;
     this.name = ConversationNameHelper.setName(this.conversation, user.id);
-    this.setBgColor();
+    this.setBgColor()
   }
 
   setBgColor() {

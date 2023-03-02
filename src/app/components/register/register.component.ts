@@ -24,15 +24,15 @@ export class RegisterComponent implements OnInit {
 
   onSubmit() {
     if (!this.form.valid) {
-      console.log(this.form.errors)
       return;
     }
 
+    const controls = this.form.controls;
     const dto: RegisterDto = {
-      email: this.form.get("email").value,
-      firstName: this.form.get("firstName").value,
-      lastName: this.form.get("lastName").value,
-      password: this.form.get("password").value
+      email: controls.email.value,
+      firstName: controls.firstName.value,
+      lastName: controls.lastName.value,
+      password: controls.password.value
     }
 
     this._authorizationService.register(dto);
