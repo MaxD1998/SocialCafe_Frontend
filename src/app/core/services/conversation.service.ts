@@ -24,8 +24,7 @@ export class ConversationService {
 
   addConversation(item: ConversationModel): void {
     this.removeIfExist(item)
-    const tempArray: ConversationModel[] = [item];
-    this._conversations = tempArray.concat(this._conversations)
+    this._conversations = [item].concat(this._conversations)
   }
 
   initConversations(): void {
@@ -40,12 +39,6 @@ export class ConversationService {
   }
 
   private removeIfExist(item: ConversationModel): void {
-    let index = this._conversations.findIndex(x => x.id == item.id);
-
-    if (index > -1) {
-      this._conversations.splice(index, 1);
-    }
+    this._conversations = this._conversations.filter(x => x.id != item.id);
   }
-
-
 }
