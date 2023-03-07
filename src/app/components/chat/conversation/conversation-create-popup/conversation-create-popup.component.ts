@@ -49,7 +49,7 @@ export class ConversationCreatePopupComponent implements OnInit {
 
   private createConversation() {
     this._messageService.conversation = {
-      id: 0,
+      id: null,
       isActive: true,
       name: "",
       message: null,

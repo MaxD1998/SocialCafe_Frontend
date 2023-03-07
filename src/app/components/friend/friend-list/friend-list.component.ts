@@ -22,7 +22,7 @@ export class FriendListComponent implements OnInit {
     this.initFriends();
   }
 
-  removeFriend(id: number) {
+  removeFriend(id: string) {
     this._friendDataService.deleteUserFriend(id)
       .subscribe(response => {
         if (response) {

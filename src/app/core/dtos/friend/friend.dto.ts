@@ -1,7 +1,7 @@
 import { UserSlimDto } from '../user/user.slim-dto';
 
 export interface FriendDto {
-    id: number;
+    id: string;
     user: UserSlimDto
-    userId: number;
+    userId: string;
 }

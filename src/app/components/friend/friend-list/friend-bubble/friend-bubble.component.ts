@@ -11,7 +11,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class FriendBubbleComponent {
   @Input() friend: FriendModel;
 
-  @Output() remove: EventEmitter<number> = new EventEmitter<number>();
+  @Output() remove: EventEmitter<string> = new EventEmitter<string>();
 
   constructor() { }
 

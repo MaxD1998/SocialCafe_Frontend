@@ -1,7 +1,7 @@
 import { ConversationDto } from '../dtos/conversation/conversation.dto';
 
 export class ConversationNameHelper {
-    static setName(dto: ConversationDto, userId: number): string {
+    static setName(dto: ConversationDto, userId: string): string {
       if (dto.name !== null && dto.name !== "") {
         return dto.name;
       }

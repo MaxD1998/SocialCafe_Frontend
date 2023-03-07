@@ -15,11 +15,11 @@ export class FriendDataService extends BaseDataService {
     return this.post<FriendDto, FriendInputDto>(FriendRoute.create, dto);
   }
 
-  deleteUserFriend(id: number): Observable<boolean> {
+  deleteUserFriend(id: string): Observable<boolean> {
     return this.delete(FriendRoute.deleteFriendUser + id);
   }
 
-  getsByUserId(id: number): Observable<FriendDto[]> {
+  getsByUserId(id: string): Observable<FriendDto[]> {
     return this.get<FriendDto[]>(FriendRoute.getUserId + id);
   }
 }

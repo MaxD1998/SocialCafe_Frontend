@@ -1,5 +1,5 @@
 export interface UserSlimDto {
-    id: number,
+    id: string,
     firstName: string,
     lastName: string,
 }

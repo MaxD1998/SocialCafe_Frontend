@@ -12,14 +12,15 @@ import { BaseDataService } from './bases/base.data-service';
 })
 export class ConversationDataService extends BaseDataService {
   create(dto: ConversationInputDto): Observable<ConversationDto> {
+    console.log(dto)
     return this.post<ConversationDto, ConversationInputDto>(ConversationRoute.create, dto)
   }
 
-  getById(id: number): Observable<ConversationDto> {
+  getById(id: string): Observable<ConversationDto> {
     return this.get<ConversationDto>(ConversationRoute.getId + id);
   }
   
-  getsByUserId(id: number): Observable<ConversationDto[]> {
+  getsByUserId(id: string): Observable<ConversationDto[]> {
     return this.get<ConversationDto[]>(ConversationRoute.getUserId + id);
   }
 }
