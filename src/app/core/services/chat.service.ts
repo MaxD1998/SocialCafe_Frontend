@@ -23,7 +23,7 @@ export class ChatService {
   }
 
   addMessage(dto: MessageInputDto) {
-    if (dto.conversationId === 0) {
+    if (dto.conversationId === null) {
       this.createConversation(this._messageService.conversation, dto);
     } else {
       this._socialChatClient.createMessage(dto);

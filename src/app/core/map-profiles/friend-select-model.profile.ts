@@ -1,12 +1,13 @@
 import { ConversationMemberDto } from '../dtos/conversation-member/conversation-member.dto';
+import { GuidHelper } from '../helpers/guid.helper';
 import { FriendSelectModel } from '../models/friends/friend.select-model';
 
 export class FriendSelectModelProfile {
     static mapToConversationMemberDto(input: FriendSelectModel): ConversationMemberDto {
         const nameArray = input.username.split(" ");
         return input ? {
-            id: 0,
-            conversationId: 0,
+            id: null,
+            conversationId: GuidHelper.empty,
             userId: input.userid,
             nick: null,
             user: {

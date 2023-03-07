@@ -10,7 +10,7 @@ import { BaseDataService } from './bases/base.data-service';
   providedIn: 'root'
 })
 export class MessageDataService extends BaseDataService {
-  getsByConversationId(id: number): Observable<MessageDto[]> {
+  getsByConversationId(id: string): Observable<MessageDto[]> {
     return this.get(MessageRoute.getConversationId + id)
   }
 }

@@ -1,5 +1,5 @@
 export interface ConversationMemberInputDto {
-    conversationId: number,
+    conversationId: string,
     nick: string,
-    userId: number
+    userId: string
 }

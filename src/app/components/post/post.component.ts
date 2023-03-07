@@ -11,11 +11,11 @@ export class PostComponent implements OnInit {
 
   posts = [];
   initPost: PostDto = {
-    id: 0,
+    id: null,
     text: "Tutaj jest treść potencjalnych postów które może w swojej karierze zobaczą światło dzienne",
-    userId: 0,
+    userId: null,
     user: {
-      id: 0,
+      id: null,
       firstName: "Maks",
       lastName: "Michalski",
     }

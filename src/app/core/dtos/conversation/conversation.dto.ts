@@ -3,7 +3,7 @@ import { MessageDto } from '../message/message.dto';
 import { ConversationBaseDto } from './conversation.base-dto';
 
 export interface ConversationDto extends ConversationBaseDto {
-    id: number,
+    id: string,
     
     message: MessageDto;
     conversationMembers: ConversationMemberDto[];

@@ -1,5 +1,5 @@
 export interface FriendModel {
-    id: number;
-    userid: number;
+    id: string;
+    userid: string;
     username: string;
 }

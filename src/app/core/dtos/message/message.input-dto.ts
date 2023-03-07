@@ -1,5 +1,5 @@
 export interface MessageInputDto {
-    conversationId: number;
+    conversationId: string;
     text: string;
-    userId: number;
+    userId: string;
 }
