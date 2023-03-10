@@ -43,7 +43,7 @@ export class ConversationCreatePopupComponent implements OnInit {
     this.isVisibleChange.emit(!this.isVisible);
   }
 
-  onChangeHandler(element: HTMLInputElement, item: FriendSelectModel) {
+  onChange(element: HTMLInputElement, item: FriendSelectModel) {
     item.isSelected = element.checked;
   }
 

@@ -9,7 +9,7 @@
                 <span class="text-light">{{friend.username}}</span>
             </div>
             <div class="checkbox-box">
-                <input #checkbox type="checkbox" (change)="onChangeHandler(checkbox, friend)" [checked]="friend.isSelected"/>
+                <input #checkbox type="checkbox" (change)="onChange(checkbox, friend)" [checked]="friend.isSelected"/>
             </div>
         </div>
     </div>
