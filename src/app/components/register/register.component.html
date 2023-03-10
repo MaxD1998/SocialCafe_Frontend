@@ -5,45 +5,13 @@
         </div>
         <form [formGroup]="form" (ngSubmit)="onSubmit()">
             <div class="d-flex">
-                <div class="form-floating">
-                    <input id="floatingFirstName"  class="form-control" type="text" formControlName="firstName"/>
-                    <label for="floatingFirstName">
-                        Imię:
-                    </label>
-                </div>
-                <div class="separator"></div>
-                <div class="form-floating">
-                    <input id="floatingLastName"  class="form-control" type="text" formControlName="lastName"/>
-                    <label for="floatingLastName">
-                        Nazwisko:
-                    </label>
-                </div>
+                <app-form-input [errorCode]="errorCode('firstName')" label="Imię" type="text" formControlName="firstName"></app-form-input>
+                <app-form-input [errorCode]="errorCode('lastName')" label="Nazwisko" type="text" formControlName="lastName"></app-form-input>
             </div>
-            <div>
-                <div class="form-floating">
-                    <input id="floatingEmail"  class="form-control" type="email" formControlName="email"/>
-                    <label for="floatingEmail">
-                        Email:
-                    </label>
-                </div>
-            </div>
-            <div>
-                <div class="form-floating">
-                    <input id="floatingPassword"  class="form-control" type="password" formControlName="password"/>
-                    <label for="floatingPassword">
-                        Hasło:
-                    </label>
-                </div>
-            </div>
-            <div>
-                <div class="form-floating">
-                    <input id="floatingRepeatedPassword"  class="form-control" type="password" formControlName="repeatedPassword"/>
-                    <label for="floatingRepeatedPassword">
-                        Powtórz hasło:
-                    </label>
-                </div>
-            </div>
-            <div>
+            <app-form-input [errorCode]="errorCode('email')" label="Email" type="email" formControlName="email"></app-form-input>
+            <app-form-input [errorCode]="errorCode('password')" label="Hasło" type="password" formControlName="password"></app-form-input>
+            <app-form-input [errorCode]="errorCode('repeatedPassword')" label="Powtórz hasło" type="password" formControlName="repeatedPassword"></app-form-input>
+            <div class="button-box">
                 <button class="btn btn-outline-dark">Rejestruj</button>
             </div>
         </form>

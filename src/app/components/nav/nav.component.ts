@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements DoCheck {
+  ComponentRoute = ComponentRoute;
 
   isSignedIn: boolean
   username: string 

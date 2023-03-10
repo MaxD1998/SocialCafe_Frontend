@@ -13,6 +13,7 @@ import { NavComponent } from './components/nav/nav.component';
 import { PostBubbleComponent } from './components/post/post-bubble/post-bubble.component';
 import { PostComponent } from './components/post/post.component';
 import { RegisterComponent } from './components/register/register.component';
+import { SharedModule } from './components/shared/shared.module';
 import { ErrorInterceptor } from './core/interceptors/error.interceptor';
 import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
 import { AuthorizationService } from './core/services/authorization.service';
@@ -33,6 +34,7 @@ import { AuthorizationService } from './core/services/authorization.service';
     AppRoutingModule,
     ChatModule,
     FriendModule,
+    SharedModule,
     ReactiveFormsModule
   ],
   providers: [

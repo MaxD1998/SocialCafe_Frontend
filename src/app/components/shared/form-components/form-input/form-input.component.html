@@ -1,0 +1,7 @@
+<div class="form-floating">
+    <input #input id="floatingInput" class="form-control" [ngClass]="{'is-invalid' : errorCode}" [type]="type" (change)="onValueChange(input)" (blur)="onValueChange(input)"/>
+    <label for="floatingInput">
+        {{label}}
+    </label>
+    <span *ngIf="errorCode" class="text-danger"> {{errorCode}} </span>
+</div>
