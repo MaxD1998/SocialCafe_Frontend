@@ -1,0 +1,9 @@
+.box {
+     background-color: white;
+     padding: 1rem;
+}
+
+span {
+     word-break: break-word;
+     white-space: pre-line;
+}

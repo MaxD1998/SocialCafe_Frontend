@@ -1,0 +1,40 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    width: 960px;
+    height: 100%;
+}
+
+.box {
+    padding: 0.5rem 0;
+}
+
+.post-board {
+    flex-grow: 1;
+}
+
+.post-board>div {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.post-box {
+    display: flex;
+    height: 100%;
+    padding: 0.5rem 0 0 0;
+}
+
+.post-input-box {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+textarea {
+    resize: none;
+    min-height: 100px;
+}
+

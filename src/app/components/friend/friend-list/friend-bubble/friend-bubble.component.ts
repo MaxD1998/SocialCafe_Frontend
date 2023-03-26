@@ -1,4 +1,3 @@
-import { FriendDto } from 'src/app/core/dtos/friend/friend.dto';
 import { FriendModel } from 'src/app/core/models/friends/friend.model';
 
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';

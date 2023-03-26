@@ -1,8 +1,6 @@
 :host {
     display: flex;
-    padding: 1rem;
-    height: 25.5rem;
-    width: 15.25rem;
+    width: 14.15625rem;
 }
 
 .box {
@@ -18,13 +16,13 @@
     flex-grow: 1;
 }
 
-.detail-box div {
+.detail-box>div {
     padding: 0.25rem 0;
 }
 
 .photo-box {
     width: inherit;
-    height: 13.5rem;
+    height: 14.15625rem;
     background-color: green;
 }
 
@@ -34,9 +32,9 @@ div button {
 
 span {
     display: inline-block;
+    width: 12.15625rem;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
-    width: 11.25rem;
     font-weight: 400;
 }

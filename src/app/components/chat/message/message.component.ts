@@ -10,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './message.component.html',
   styleUrls: ['./message.component.css']
 })
-export class MessageComponent implements OnInit {
+export class MessageComponent {
   message: string = "";
 
   private _userId;
@@ -22,9 +22,6 @@ export class MessageComponent implements OnInit {
       const user = this._acconutService.getUser();
       this._userId = user.id;
     }
-
-  ngOnInit(): void {
-  }
 
   onKeyDownHandler(event: KeyboardEvent, element: HTMLDivElement) {
     if (event.key === "Enter" && !event.shiftKey) {
