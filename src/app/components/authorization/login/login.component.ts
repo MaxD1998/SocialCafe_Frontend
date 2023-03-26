@@ -4,7 +4,7 @@ import { ValidationConditionConst } from 'src/app/core/constants/validation-cond
 import { LoginDto } from 'src/app/core/dtos/login.dto';
 import { AuthorizationService } from 'src/app/core/services/authorization.service';
 
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({

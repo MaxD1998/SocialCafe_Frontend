@@ -14,11 +14,9 @@ export class FriendSearchListComponent {
   users: UserSlimDto[] = [];
 
   constructor(
-    private _accountService: AccountService,
     private _userDataService: UserDataService) { }
 
   search(element: HTMLInputElement): void {
-    const user = this._accountService.getUser();
     const value = element.value;
     const names = value
       .trim()

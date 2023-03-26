@@ -1,0 +1,21 @@
+<div class="box">
+    <form class="post-input-box bg-dark rounded-top" [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="form-floating">
+            <textarea class="form-control" 
+                placeholder="Co masz na myśli?" 
+                id="floatingTextarea" #postInput 
+                (input)="textareaAutoHeightResize(postInput)"
+                formControlName="textArea">
+            </textarea>
+            <label for="floatingTextarea">Co masz na myśli?</label>
+        </div>
+        <button class="btn btn-outline-light">Opublikuj</button>
+    </form>
+</div>
+<div class="post-box">
+    <div class="post-board bg-dark rounded-top">
+        <div class="bg-dark rounded-top">
+            <app-post-bubble *ngFor="let post of posts" [post]="post"></app-post-bubble>
+        </div>
+    </div>
+</div>

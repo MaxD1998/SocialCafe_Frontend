@@ -1,9 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { LoginComponent } from './components/login/login.component';
-import { MainComponent } from './components/main/main.component';
-import { RegisterComponent } from './components/register/register.component';
 import { ComponentRoute } from './core/constants/routes/component.route';
 import { AuthorizationGuard } from './core/guards/authorization.guard';
 
@@ -17,7 +14,10 @@ const routes: Routes = [
     path: '',
     canActivate: [AuthorizationGuard],
     children: [
-      { path: 'main', component: MainComponent },
+      { 
+        path: 'main',
+        loadChildren: () => import('./components/main/main.module').then(m => m.MainModule)
+      },
       { 
         path: 'chat',
         loadChildren: () => import('./components/chat/chat.module').then(m => m.ChatModule)
@@ -28,8 +28,10 @@ const routes: Routes = [
       },
     ]
   },
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
+  { 
+    path: '',
+    loadChildren: () => import('./components/authorization/authorization.module').then(m => m.AuthorizationModule)
+  },
 ];
 
 @NgModule({

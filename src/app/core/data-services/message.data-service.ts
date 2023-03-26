@@ -11,6 +11,6 @@ import { BaseDataService } from './bases/base.data-service';
 })
 export class MessageDataService extends BaseDataService {
   getsByConversationId(id: string): Observable<MessageDto[]> {
-    return this.get(MessageRoute.getConversationId + id)
+    return this.get<MessageDto[]>(MessageRoute.getConversationId + id)
   }
 }
