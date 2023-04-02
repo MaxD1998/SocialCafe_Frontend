@@ -24,4 +24,8 @@ export abstract class BaseDataService {
   protected post<TResult, TModel>(address: string, dto: TModel, withCredentials: boolean = false): Observable<TResult> {
     return this._http.post<TResult>(this._api + address, dto, { withCredentials: withCredentials });
   } 
+
+  protected put<TResult, TModel>(address: string, dto: TModel, withCredentials: boolean = false): Observable<TResult> {
+    return this._http.put<TResult>(this._api + address, dto, { withCredentials: withCredentials });
+  }
 }

@@ -1,4 +1,4 @@
-import { BaseFormComponent } from 'src/app/core/base/base-form-component';
+import { BaseFormComponent } from 'src/app/core/bases/base-form-component';
 import { PostDataService } from 'src/app/core/data-services/post.data-service';
 import { AuthorizeDto } from 'src/app/core/dtos/authorize.dto';
 import { PostDto } from 'src/app/core/dtos/post/post.dto';
