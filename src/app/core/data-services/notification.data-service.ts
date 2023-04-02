@@ -2,10 +2,10 @@ import { Observable } from 'rxjs';
 
 import { Injectable } from '@angular/core';
 
+import { BaseDataService } from '../bases/base.data-service';
 import { NotificationRoute } from '../constants/routes/api-routes/notification.route';
 import { NotificationDto } from '../dtos/notification/notification.dto';
 import { NotificationInputDto } from '../dtos/notification/notification.input-dto';
-import { BaseDataService } from './bases/base.data-service';
 
 @Injectable({
   providedIn: 'root'

@@ -2,10 +2,10 @@ import { Observable } from 'rxjs';
 
 import { Injectable } from '@angular/core';
 
+import { BaseDataService } from '../bases/base.data-service';
 import { ConversationRoute } from '../constants/routes/api-routes/conversation.route';
 import { ConversationDto } from '../dtos/conversation/conversation.dto';
 import { ConversationInputDto } from '../dtos/conversation/conversation.input-dto';
-import { BaseDataService } from './bases/base.data-service';
 
 @Injectable({
   providedIn: 'root'

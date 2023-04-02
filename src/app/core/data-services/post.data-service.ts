@@ -2,10 +2,10 @@ import { Observable } from 'rxjs';
 
 import { Injectable } from '@angular/core';
 
+import { BaseDataService } from '../bases/base.data-service';
 import { PostRoute } from '../constants/routes/api-routes/post.route';
 import { PostDto } from '../dtos/post/post.dto';
 import { PostInputDto } from '../dtos/post/post.input-dto';
-import { BaseDataService } from './bases/base.data-service';
 
 @Injectable({
   providedIn: 'root'

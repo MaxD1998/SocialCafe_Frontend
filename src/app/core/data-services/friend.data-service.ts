@@ -2,10 +2,10 @@ import { Observable } from 'rxjs';
 
 import { Injectable } from '@angular/core';
 
+import { BaseDataService } from '../bases/base.data-service';
 import { FriendRoute } from '../constants/routes/api-routes/friend.route';
 import { FriendDto } from '../dtos/friend/friend.dto';
 import { FriendInputDto } from '../dtos/friend/friend.input-dto';
-import { BaseDataService } from './bases/base.data-service';
 
 @Injectable({
   providedIn: 'root'
