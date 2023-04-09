@@ -13,15 +13,19 @@ export abstract class BaseDataService {
   constructor(private _http: HttpClient) {
   }
 
-  protected get<TResult>(address: string, header: { withCredentials?: boolean, params?: HttpParams } = {}): Observable<TResult> {
+  protected httpGet<TResult>(address: string, header: { withCredentials?: boolean, params?: HttpParams } = {}): Observable<TResult> {
     return this._http.get<TResult>(this._api + address, { withCredentials: header.withCredentials, params: header.params });
   } 
 
-  protected delete(address: string, withCredentials: boolean = false): Observable<boolean> {
+  protected httpDelete(address: string, withCredentials: boolean = false): Observable<boolean> {
     return this._http.delete<boolean>(this._api+ address, { withCredentials: withCredentials });
   }
 
-  protected post<TResult, TModel>(address: string, dto: TModel, withCredentials: boolean = false): Observable<TResult> {
+  protected httpPost<TResult, TModel>(address: string, dto: TModel, withCredentials: boolean = false): Observable<TResult> {
     return this._http.post<TResult>(this._api + address, dto, { withCredentials: withCredentials });
   } 
+
+  protected httpPut<TResult, TModel>(address: string, dto: TModel, withCredentials: boolean = false): Observable<TResult> {
+    return this._http.put<TResult>(this._api + address, dto, { withCredentials: withCredentials });
+  }
 }

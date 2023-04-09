@@ -1,4 +1,4 @@
-import { BaseFormComponent } from 'src/app/core/base/base-form-component';
+import { BaseFormComponent } from 'src/app/core/bases/base-form-component';
 import { ValidationConditionConst } from 'src/app/core/constants/validation-condition.const';
 import { RegisterDto } from 'src/app/core/dtos/register.dto';
 import { AuthorizationService } from 'src/app/core/services/authorization.service';

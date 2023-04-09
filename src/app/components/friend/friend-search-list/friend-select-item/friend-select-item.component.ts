@@ -1,8 +1,9 @@
-import { FriendDataService } from 'src/app/core/data-services/friend.data-service';
+import { NotificationClient } from 'src/app/core/clients/notification.client';
 import { UserSlimDto } from 'src/app/core/dtos/user/user.slim-dto';
+import { NotificationType } from 'src/app/core/enums/notification-type';
 import { AccountService } from 'src/app/core/services/account.service';
 
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-friend-select-item',
@@ -16,15 +17,19 @@ export class FriendSelectItemComponent {
 
   constructor(
     private _accountService: AccountService, 
-    private _friendDataService: FriendDataService) { }
+    private _notificationClient: NotificationClient) { }
 
   add() {
     const user = this._accountService.getUser();
-    this._friendDataService.create({
-      inviterId: user.id,
+    this._notificationClient.sendNotification({
+      isRead: false,
+      userId: user.id,
+      type: NotificationType.FriendInvitation,
       recipientId: this.user.id
-    })
-    .subscribe(() => this.isDisable = true);
+    });
   }
 
+  abadon() {
+    // Logika do napisania w zadaniu "Zmiana sposobu dodawania znajomych"
+  }
 }
