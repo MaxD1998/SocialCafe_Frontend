@@ -4,8 +4,9 @@
 
 export const environment = {
   production: false,
-  api: "https://localhost:6001/",
-  socialChat: "https://localhost:6001/SocialChat",
+  api: 'https://localhost:6001/',
+  notification: 'https://localhost:6001/Notification',
+  socialChat: 'https://localhost:6001/SocialChat',
 };
 
 /*

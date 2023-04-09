@@ -13,18 +13,18 @@ import { RegisterDto } from '../dtos/register.dto';
 })
 export class AuthorizationDataService extends BaseDataService {
   getToken(): Observable<AuthorizeDto> {
-    return this.get<AuthorizeDto>(AuthorizationRoute.refreshToken, { withCredentials: true })
+    return this.httpGet<AuthorizeDto>(AuthorizationRoute.refreshToken, { withCredentials: true })
   }
 
   login(dto: LoginDto): Observable<AuthorizeDto> {
-    return this.post<AuthorizeDto, LoginDto>(AuthorizationRoute.login, dto, true)
+    return this.httpPost<AuthorizeDto, LoginDto>(AuthorizationRoute.login, dto, true)
   }
 
   logout(): void {
-    this.post(AuthorizationRoute.logout, null);
+    this.httpPost(AuthorizationRoute.logout, null);
   }
 
   register(dto: RegisterDto): Observable<AuthorizeDto> {
-    return this.post(AuthorizationRoute.register, dto);
+    return this.httpPost(AuthorizationRoute.register, dto);
   }
 }

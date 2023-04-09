@@ -1,0 +1,7 @@
+<div class="box bg-dark rounded-top">
+    <app-notification-bubble [notification]="notification" *ngFor="let notification of notificationService.notifications"
+        (outputEvent)="removeNotification($event)"></app-notification-bubble>
+    <div class="empty-box" *ngIf="notificationService.notifications.length === 0">
+        <span class="text-secondary">Nie masz żadnych powiadomień :C</span>
+    </div>
+</div>

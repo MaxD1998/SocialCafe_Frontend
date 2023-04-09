@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { MainRoutingModule } from './main-routing.module';
 import { MainComponent } from './main.component';
+import { NotificationModule } from './notification/notification.module';
 import { PostModule } from './post/post.module';
 
 @NgModule({
@@ -12,7 +13,8 @@ import { PostModule } from './post/post.module';
   imports: [
     CommonModule,
     MainRoutingModule,
-    PostModule
+    NotificationModule,
+    PostModule,
   ]
 })
 export class MainModule { }

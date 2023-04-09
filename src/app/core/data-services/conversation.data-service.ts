@@ -13,14 +13,14 @@ import { ConversationInputDto } from '../dtos/conversation/conversation.input-dt
 export class ConversationDataService extends BaseDataService {
   create(dto: ConversationInputDto): Observable<ConversationDto> {
     console.log(dto)
-    return this.post<ConversationDto, ConversationInputDto>(ConversationRoute.create, dto)
+    return this.httpPost<ConversationDto, ConversationInputDto>(ConversationRoute.create, dto)
   }
 
   getById(id: string): Observable<ConversationDto> {
-    return this.get<ConversationDto>(ConversationRoute.getId + id);
+    return this.httpGet<ConversationDto>(ConversationRoute.getId + id);
   }
   
   getsByUserId(id: string): Observable<ConversationDto[]> {
-    return this.get<ConversationDto[]>(ConversationRoute.getUserId + id);
+    return this.httpGet<ConversationDto[]>(ConversationRoute.getUserId + id);
   }
 }

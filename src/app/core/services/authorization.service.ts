@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { NotificationClient } from '../clients/notification.client';
 import { SocialChatClient } from '../clients/social-chat.client';
-import { CookiesNameConst } from '../constants/cookies-name.const';
 import { ComponentRoute } from '../constants/routes/component.route';
 import { AuthorizationDataService } from '../data-services/authorization.data-service';
 import { AuthorizeDto } from '../dtos/authorize.dto';
@@ -18,7 +18,8 @@ export class AuthorizationService{
   constructor(
     private _accountService: AccountService,
     private _authorizationDataService: AuthorizationDataService,
-    private _socialChatService: SocialChatClient,
+    private _notificationClient: NotificationClient,
+    private _socialChatClient: SocialChatClient,
     private _router: Router) {
   }
   async authorize(): Promise<void> {
@@ -29,7 +30,8 @@ export class AuthorizationService{
 
     if (response) {
       this._accountService.setUser(response);
-      this._socialChatService.connect();
+      this._socialChatClient.connect();
+      this._notificationClient.connect();
     } else {
       this._accountService.removeUser();
       this._authorizationDataService.logout();
@@ -47,6 +49,8 @@ export class AuthorizationService{
   }
 
   logout(): void {
+    this._notificationClient.disconnect();
+    this._socialChatClient.disconnect();
     this._accountService.removeUser();
     this._authorizationDataService.logout();
     this._router.navigateByUrl(ComponentRoute.login);
@@ -54,7 +58,8 @@ export class AuthorizationService{
 
   private initUser(dto: AuthorizeDto): void {
     this._accountService.setUser(dto);
-    this._socialChatService.connect();
+    this._socialChatClient.connect();
+    this._notificationClient.connect();
     this._router.navigateByUrl(ComponentRoute.main);
   }
 }

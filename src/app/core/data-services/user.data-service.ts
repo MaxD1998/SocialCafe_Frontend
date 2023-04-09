@@ -16,6 +16,6 @@ export class UserDataService extends BaseDataService {
     params = params.append("firstName", firstName);
     params = params.append("lastName", lastName);
 
-    return this.get(UserRoute.getsNamesExceptUserFriends, { params: params })
+    return this.httpGet(UserRoute.getsNamesExceptUserFriends, { params: params })
   }
 }

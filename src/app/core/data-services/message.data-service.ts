@@ -11,6 +11,6 @@ import { MessageDto } from '../dtos/message/message.dto';
 })
 export class MessageDataService extends BaseDataService {
   getsByConversationId(id: string): Observable<MessageDto[]> {
-    return this.get<MessageDto[]>(MessageRoute.getConversationId + id)
+    return this.httpGet<MessageDto[]>(MessageRoute.getConversationId + id)
   }
 }

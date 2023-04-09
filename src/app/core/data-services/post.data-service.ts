@@ -12,14 +12,14 @@ import { PostInputDto } from '../dtos/post/post.input-dto';
 })
 export class PostDataService extends BaseDataService {
   create(dto: PostInputDto): Observable<PostDto> {
-    return this.post<PostDto, PostInputDto>(PostRoute.create, dto);
+    return this.httpPost<PostDto, PostInputDto>(PostRoute.create, dto);
   }
 
   getsByUserId(id: string): Observable<PostDto[]> {
-    return this.get<PostDto[]>(PostRoute.getsUserId + id);
+    return this.httpGet<PostDto[]>(PostRoute.getsUserId + id);
   }
 
   getsByUserAndUserFriendsByUserId(id: string): Observable<PostDto[]> {
-    return this.get<PostDto[]>(PostRoute.getsUserAndUserFriendsByUserId + id);
+    return this.httpGet<PostDto[]>(PostRoute.getsUserAndUserFriendsByUserId + id);
   }
 }

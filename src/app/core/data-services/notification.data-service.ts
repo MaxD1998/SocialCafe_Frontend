@@ -12,14 +12,14 @@ import { NotificationInputDto } from '../dtos/notification/notification.input-dt
 })
 export class NotificationDataService extends BaseDataService {
   delete(id: string): Observable<boolean> {
-    return this.delete(NotificationRoute.delete + id);
+    return this.httpDelete(NotificationRoute.delete + id);
   }
 
   getsByRecipientId(id: string): Observable<NotificationDto[]> {
-    return this.get<NotificationDto[]>(NotificationRoute.getsRecipientId + id);
+    return this.httpGet<NotificationDto[]>(NotificationRoute.getsRecipientId + id);
   }
 
   update(id: string, dto: NotificationInputDto): Observable<NotificationDto> {
-    return this.put<NotificationDto, NotificationInputDto>(NotificationRoute.update + id, dto);
+    return this.httpPut<NotificationDto, NotificationInputDto>(NotificationRoute.update + id, dto);
   }
 }

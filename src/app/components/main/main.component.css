@@ -1,5 +1,18 @@
 .box {
     display: flex;
-    justify-content: center;
     overflow-y: scroll;
+    padding-top: 0.5rem;
+}
+
+.mid-column {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.side-column {
+    position: sticky;
+    width: 22.5rem;
+    height: 100%;
+    top: 0;
 }
