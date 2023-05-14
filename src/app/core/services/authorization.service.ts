@@ -11,17 +11,16 @@ import { RegisterDto } from '../dtos/register.dto';
 import { AccountService } from './account.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class AuthorizationService{
-
+export class AuthorizationService {
   constructor(
     private _accountService: AccountService,
     private _authorizationDataService: AuthorizationDataService,
     private _notificationClient: NotificationClient,
     private _socialChatClient: SocialChatClient,
-    private _router: Router) {
-  }
+    private _router: Router
+  ) {}
   async authorize(): Promise<void> {
     const response: AuthorizeDto = await this._authorizationDataService
       .getToken()
@@ -39,13 +38,11 @@ export class AuthorizationService{
   }
 
   login(dto: LoginDto): void {
-    this._authorizationDataService.login(dto)
-      .subscribe(response => this.initUser(response));
+    this._authorizationDataService.login(dto).subscribe(response => this.initUser(response));
   }
 
   register(dto: RegisterDto): void {
-    this._authorizationDataService.register(dto)
-      .subscribe(response => this.initUser(response));
+    this._authorizationDataService.register(dto).subscribe(response => this.initUser(response));
   }
 
   logout(): void {

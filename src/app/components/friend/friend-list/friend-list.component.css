@@ -1,17 +1,17 @@
 :host {
-    display: flex;
-    flex-grow: 1;
-    padding: 0 1rem;
+  display: flex;
+  flex-grow: 1;
+  padding: 0 1rem;
 }
 
 .box {
-    width: 100%;
-    overflow-y: scroll;
-    padding: 1rem;
+  width: 100%;
+  overflow-y: scroll;
+  padding: 1rem;
 }
 
-.box>div {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
+.box > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
 }

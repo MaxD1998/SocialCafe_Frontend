@@ -7,10 +7,10 @@ import { MessageRoute } from '../constants/routes/api-routes/message.route';
 import { MessageDto } from '../dtos/message/message.dto';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class MessageDataService extends BaseDataService {
   getsByConversationId(id: string): Observable<MessageDto[]> {
-    return this.httpGet<MessageDto[]>(MessageRoute.getConversationId + id)
+    return this.httpGet<MessageDto[]>(MessageRoute.getConversationId + id);
   }
 }

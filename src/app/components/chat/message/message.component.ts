@@ -8,28 +8,29 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-message',
   templateUrl: './message.component.html',
-  styleUrls: ['./message.component.css']
+  styleUrls: ['./message.component.css'],
 })
 export class MessageComponent {
-  message: string = "";
+  message: string = '';
 
   private _userId;
 
   constructor(
     public messageService: MessageService,
     private _acconutService: AccountService,
-    private _chatService: ChatService) { 
-      const user = this._acconutService.getUser();
-      this._userId = user.id;
-    }
+    private _chatService: ChatService
+  ) {
+    const user = this._acconutService.getUser();
+    this._userId = user.id;
+  }
 
   onKeyDownHandler(event: KeyboardEvent, element: HTMLDivElement) {
-    if (event.key === "Enter" && !event.shiftKey) {
+    if (event.key === 'Enter' && !event.shiftKey) {
       this.sendMessage(element);
       return false;
     }
 
-    if (event.key === "Backspace" && element.textContent === "") {
+    if (event.key === 'Backspace' && element.textContent === '') {
       this.clearContent(element);
       return false;
     }
@@ -38,7 +39,7 @@ export class MessageComponent {
   }
 
   onKeyUpHandler(event: KeyboardEvent, element: HTMLDivElement) {
-    if (event.key === "Backspace" && element.textContent === "") {
+    if (event.key === 'Backspace' && element.textContent === '') {
       this.clearContent(element);
       return false;
     }
@@ -50,25 +51,22 @@ export class MessageComponent {
     element.textContent = null;
   }
 
-  private sendMessage(element: HTMLDivElement){
-      this.message = element.outerText;
-      this.message = this.message
-        .trimStart()
-        .trimEnd();
-        
-      element.textContent = null;
+  private sendMessage(element: HTMLDivElement) {
+    this.message = element.outerText;
+    this.message = this.message.trimStart().trimEnd();
 
-      if (this.message === "") 
-        return false;
+    element.textContent = null;
 
-      const message: MessageInputDto = {
-        conversationId: this.messageService.conversation.id,
-        userId: this._userId,
-        text: this.message,
-      };
+    if (this.message === '') return false;
 
-      this._chatService.addMessage(message)
+    const message: MessageInputDto = {
+      conversationId: this.messageService.conversation.id,
+      userId: this._userId,
+      text: this.message,
+    };
 
-      return false;
+    this._chatService.addMessage(message);
+
+    return false;
   }
 }

@@ -8,9 +8,8 @@ import { BaseInterceptor } from './base.interceptor';
 
 @Injectable()
 export class JwtInterceptor extends BaseInterceptor {
-
   constructor(accountService: AccountService) {
-    super(accountService)
+    super(accountService);
   }
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {

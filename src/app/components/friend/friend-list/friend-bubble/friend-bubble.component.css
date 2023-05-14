@@ -1,40 +1,40 @@
 :host {
-    display: flex;
-    width: 14.15625rem;
+  display: flex;
+  width: 14.15625rem;
 }
 
 .box {
-    display: flex;
-    flex-grow: 1;
-    flex-direction: column;
-    background-color: white;
-    overflow-y: auto;
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  background-color: white;
+  overflow-y: auto;
 }
 
 .detail-box {
-    padding: 0.5rem 1rem;
-    flex-grow: 1;
+  padding: 0.5rem 1rem;
+  flex-grow: 1;
 }
 
-.detail-box>div {
-    padding: 0.25rem 0;
+.detail-box > div {
+  padding: 0.25rem 0;
 }
 
 .photo-box {
-    width: inherit;
-    height: 14.15625rem;
-    background-color: green;
+  width: inherit;
+  height: 14.15625rem;
+  background-color: green;
 }
 
 div button {
-    width: 100%;
+  width: 100%;
 }
 
 span {
-    display: inline-block;
-    width: 12.15625rem;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    font-weight: 400;
+  display: inline-block;
+  width: 12.15625rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-weight: 400;
 }

@@ -9,10 +9,9 @@ import { AccountService } from '../services/account.service';
 import { BaseInterceptor } from './base.interceptor';
 
 @Injectable()
-export class ErrorInterceptor extends BaseInterceptor{
-
+export class ErrorInterceptor extends BaseInterceptor {
   constructor(accountService: AccountService, private authorizationDataService: AuthorizationDataService) {
-    super(accountService)
+    super(accountService);
   }
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
@@ -25,14 +24,15 @@ export class ErrorInterceptor extends BaseInterceptor{
             this.accountService.removeUser();
             break;
         }
-        
+
         return throwError(error);
-      }));
+      })
+    );
   }
 
   private getToken(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     return this.authorizationDataService.getToken().pipe(
-      switchMap((value) => {
+      switchMap(value => {
         this.accountService.setUser(value);
         return this.setAuthHeader(request, next);
       })

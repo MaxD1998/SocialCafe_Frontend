@@ -1,5 +1,5 @@
 export class UserRoute {
-    private static readonly base = "User/"
+  private static readonly base = 'User/';
 
-    static readonly getsNamesExceptUserFriends = this.base + "NamesExceptUserFriends/"
+  static readonly getsNamesExceptUserFriends = this.base + 'NamesExceptUserFriends/';
 }

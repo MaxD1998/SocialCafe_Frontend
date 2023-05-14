@@ -5,15 +5,8 @@ import { NotificationBubbleComponent } from './notification-bubble/notification-
 import { NotificationComponent } from './notification.component';
 
 @NgModule({
-  declarations: [
-    NotificationBubbleComponent,
-    NotificationComponent
-  ],
-  exports: [
-    NotificationComponent
-  ],
-  imports: [
-    CommonModule
-  ]
+  declarations: [NotificationBubbleComponent, NotificationComponent],
+  exports: [NotificationComponent],
+  imports: [CommonModule],
 })
-export class NotificationModule { }
+export class NotificationModule {}

@@ -1,64 +1,64 @@
 :host {
-    display: flex;
-    flex-direction: column-reverse;
-    position: absolute;
-    width: 25rem;
-    top: var(--nav-height);
-    left: 3.875rem;
-    bottom: 3.75rem;
+  display: flex;
+  flex-direction: column-reverse;
+  position: absolute;
+  width: 25rem;
+  top: var(--nav-height);
+  left: 3.875rem;
+  bottom: 3.75rem;
 }
 
 .box {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    max-height: 30rem;
-    min-height: 15rem;
-    padding: 0rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  max-height: 30rem;
+  min-height: 15rem;
+  padding: 0rem 0.5rem;
 }
 
 .sub-box {
-    padding: 0.5rem 0;
+  padding: 0.5rem 0;
 }
 
 button {
-    width: 100%;
-    border-color: rgba(var(--bs-secondary-rgb)) !important;
+  width: 100%;
+  border-color: rgba(var(--bs-secondary-rgb)) !important;
 }
 
 button:hover {
-    border-color: rgba(var(--bs-light-rgb)) !important;
+  border-color: rgba(var(--bs-light-rgb)) !important;
 }
 
 input:focus {
-    outline: none;
-    box-shadow: none;
+  outline: none;
+  box-shadow: none;
 }
 
 .circle {
-    width: 2.5rem;
-    height: 2.5rem;
-    border-radius: 50%;
-    background-color: green;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background-color: green;
 }
 
 .friend-item {
-    display: flex;
-    width: 100%;
-    height: 3.5rem;
-    padding: 0.5rem 0;
-    align-items: center;
+  display: flex;
+  width: 100%;
+  height: 3.5rem;
+  padding: 0.5rem 0;
+  align-items: center;
 }
 .friend-item span {
-    padding-left: 0.5rem;
+  padding-left: 0.5rem;
 }
 
 .checkbox-box {
-    padding-left: 0.5rem;
-    height: 1.5rem;
+  padding-left: 0.5rem;
+  height: 1.5rem;
 }
 
 .checkbox-box input {
-    width: 1.5rem;
-    height: 1.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
 }

@@ -1,4 +1,4 @@
 export interface PostInputDto {
-    text: string;
-    userId: string;
+  text: string;
+  userId: string;
 }

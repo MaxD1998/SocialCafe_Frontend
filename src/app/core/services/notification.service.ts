@@ -3,12 +3,12 @@ import { Injectable } from '@angular/core';
 import { NotificationDto } from '../dtos/notification/notification.dto';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class NotificationService {
   notifications: NotificationDto[] = [];
 
-  constructor() { }
+  constructor() {}
 
   addNotification(dto: NotificationDto): void {
     this.notifications = [dto].concat(this.notifications);

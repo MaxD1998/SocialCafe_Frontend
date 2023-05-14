@@ -9,15 +9,15 @@ import { LoginDto } from '../dtos/login.dto';
 import { RegisterDto } from '../dtos/register.dto';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthorizationDataService extends BaseDataService {
   getToken(): Observable<AuthorizeDto> {
-    return this.httpGet<AuthorizeDto>(AuthorizationRoute.refreshToken, { withCredentials: true })
+    return this.httpGet<AuthorizeDto>(AuthorizationRoute.refreshToken, { withCredentials: true });
   }
 
   login(dto: LoginDto): Observable<AuthorizeDto> {
-    return this.httpPost<AuthorizeDto, LoginDto>(AuthorizationRoute.login, dto, true)
+    return this.httpPost<AuthorizeDto, LoginDto>(AuthorizationRoute.login, dto, true);
   }
 
   logout(): void {

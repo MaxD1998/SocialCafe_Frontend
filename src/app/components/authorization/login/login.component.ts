@@ -10,25 +10,22 @@ import { FormBuilder, Validators } from '@angular/forms';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
-
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent extends BaseFormComponent {
   ComponentRoute = ComponentRoute;
 
-   constructor(
-    private _authorizationService: AuthorizationService, 
-    formBuilder: FormBuilder) { 
+  constructor(private _authorizationService: AuthorizationService, formBuilder: FormBuilder) {
     super(formBuilder);
   }
 
   onSubmit(): void {
     if (this.form.valid) {
-      let controls =  this.form.controls;
+      let controls = this.form.controls;
       let dto: LoginDto = {
         email: controls.email.value,
-        password: controls.password.value
-      }
+        password: controls.password.value,
+      };
 
       this._authorizationService.login(dto);
     }
@@ -36,8 +33,8 @@ export class LoginComponent extends BaseFormComponent {
 
   protected setFormControls(): {} {
     return {
-      email: [null,[Validators.required, Validators.email]],
-      password: [null, [Validators.required, Validators.minLength(ValidationConditionConst.passwordMinLength)]]
-    }
+      email: [null, [Validators.required, Validators.email]],
+      password: [null, [Validators.required, Validators.minLength(ValidationConditionConst.passwordMinLength)]],
+    };
   }
 }

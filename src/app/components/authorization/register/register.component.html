@@ -1,19 +1,39 @@
 <div class="canvas">
-    <div class="box rounded bg-light border border-dark">
-        <div class="d-center border-bottom border-secondary">
-            <span class="h2">Rejestracja</span>
-        </div>
-        <form [formGroup]="form" (ngSubmit)="onSubmit()">
-            <div class="d-flex">
-                <app-form-input [errorCode]="errorCode('firstName')" label="Imię" type="text" formControlName="firstName"></app-form-input>
-                <app-form-input [errorCode]="errorCode('lastName')" label="Nazwisko" type="text" formControlName="lastName"></app-form-input>
-            </div>
-            <app-form-input [errorCode]="errorCode('email')" label="Email" type="email" formControlName="email"></app-form-input>
-            <app-form-input [errorCode]="errorCode('password')" label="Hasło" type="password" formControlName="password"></app-form-input>
-            <app-form-input [errorCode]="errorCode('repeatedPassword')" label="Powtórz hasło" type="password" formControlName="repeatedPassword"></app-form-input>
-            <div class="button-box">
-                <button class="btn btn-outline-dark">Rejestruj</button>
-            </div>
-        </form>
+  <div class="box rounded bg-light border border-dark">
+    <div class="d-center border-bottom border-secondary">
+      <span class="h2">Rejestracja</span>
     </div>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="d-flex">
+        <app-form-input
+          [errorCode]="errorCode('firstName')"
+          label="Imię"
+          type="text"
+          formControlName="firstName"></app-form-input>
+        <app-form-input
+          [errorCode]="errorCode('lastName')"
+          label="Nazwisko"
+          type="text"
+          formControlName="lastName"></app-form-input>
+      </div>
+      <app-form-input
+        [errorCode]="errorCode('email')"
+        label="Email"
+        type="email"
+        formControlName="email"></app-form-input>
+      <app-form-input
+        [errorCode]="errorCode('password')"
+        label="Hasło"
+        type="password"
+        formControlName="password"></app-form-input>
+      <app-form-input
+        [errorCode]="errorCode('repeatedPassword')"
+        label="Powtórz hasło"
+        type="password"
+        formControlName="repeatedPassword"></app-form-input>
+      <div class="button-box">
+        <button class="btn btn-outline-dark">Rejestruj</button>
+      </div>
+    </form>
+  </div>
 </div>

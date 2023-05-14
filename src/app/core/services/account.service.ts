@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { AuthorizeDto } from '../dtos/authorize.dto';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AccountService {
   private _user: AuthorizeDto = null;

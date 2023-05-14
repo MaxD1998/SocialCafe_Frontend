@@ -1,44 +1,44 @@
 :host {
-    display: flex;
-    flex-direction: column;
-    min-width: 25rem;
-    max-width: 25rem;
-    padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  min-width: 25rem;
+  max-width: 25rem;
+  padding: 0 1rem;
 }
 
 .list-box {
-    display: flex;
-    flex-grow: 1;
-    padding-top: 1rem;
+  display: flex;
+  flex-grow: 1;
+  padding-top: 1rem;
 }
 
 .search-box {
-    display: flex;
-    height: 9rem;
-    width: 100%;
-    padding-bottom: 1rem;
+  display: flex;
+  height: 9rem;
+  width: 100%;
+  padding-bottom: 1rem;
 }
 
 .sub-box div {
-    padding-bottom: 1rem;
+  padding-bottom: 1rem;
 }
 
 .sub-box {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 1rem;
 }
 
 button {
-    border-color: rgba(var(--bs-secondary-rgb)) !important;
+  border-color: rgba(var(--bs-secondary-rgb)) !important;
 }
 
 button:hover {
-    border-color: rgba(var(--bs-light-rgb)) !important
+  border-color: rgba(var(--bs-light-rgb)) !important;
 }
 
 input:focus {
-    outline: none;
-    box-shadow: none;
+  outline: none;
+  box-shadow: none;
 }

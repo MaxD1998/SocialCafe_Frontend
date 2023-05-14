@@ -1,4 +1,4 @@
 export interface FriendInputDto {
-    inviterId: string;
-    recipientId: string;
+  inviterId: string;
+  recipientId: string;
 }

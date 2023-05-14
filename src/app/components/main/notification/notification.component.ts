@@ -7,14 +7,14 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-notification',
   templateUrl: './notification.component.html',
-  styleUrls: ['./notification.component.css']
+  styleUrls: ['./notification.component.css'],
 })
 export class NotificationComponent implements OnInit {
-
   constructor(
     private _accountService: AccountService,
     private _notificationDataService: NotificationDataService,
-    public notificationService: NotificationService) { }
+    public notificationService: NotificationService
+  ) {}
 
   ngOnInit(): void {
     this.initNotifications();
@@ -22,14 +22,14 @@ export class NotificationComponent implements OnInit {
 
   initNotifications() {
     const user = this._accountService.getUser();
-    this._notificationDataService.getsByRecipientId(user.id)
-      .subscribe(response => this.notificationService.notifications = response);
+    this._notificationDataService
+      .getsByRecipientId(user.id)
+      .subscribe(response => (this.notificationService.notifications = response));
   }
 
   removeNotification(id: string) {
-    this._notificationDataService.delete(id)
-      .subscribe(() => {
-        this.notificationService.removeNotification(id);
-      });
+    this._notificationDataService.delete(id).subscribe(() => {
+      this.notificationService.removeNotification(id);
+    });
   }
 }

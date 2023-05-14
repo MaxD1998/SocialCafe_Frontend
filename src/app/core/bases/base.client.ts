@@ -10,7 +10,7 @@ import { AccountService } from '../services/account.service';
 export abstract class BaseClient {
   protected _hubConnection: HubConnection;
 
-  constructor(private _accountService: AccountService) { }
+  constructor(private _accountService: AccountService) {}
 
   protected abstract get url(): string;
 

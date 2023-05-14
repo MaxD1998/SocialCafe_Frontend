@@ -1,12 +1,12 @@
 <div class="box border border-secondary rounded">
-    <div class="photo-box">
-        <div class="photo rounded-circle"></div>
+  <div class="photo-box">
+    <div class="photo rounded-circle"></div>
+  </div>
+  <div>
+    <span class="text-light">{{ userName }} wysłał(a) zaproszenie do znajomych</span>
+    <div class="btn-box">
+      <button class="btn btn-outline-danger" (click)="remove()">Usuń</button>
+      <button class="btn btn-outline-success" (click)="accept()">Dodaj</button>
     </div>
-    <div>
-        <span class="text-light">{{userName}} wysłał(a) zaproszenie do znajomych</span>
-        <div class="btn-box">
-            <button class="btn btn-outline-danger" (click)="remove()">Usuń</button>
-            <button class="btn btn-outline-success" (click)="accept()">Dodaj</button>
-        </div>
-    </div>
+  </div>
 </div>

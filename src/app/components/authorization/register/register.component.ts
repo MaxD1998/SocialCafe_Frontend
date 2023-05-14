@@ -4,19 +4,15 @@ import { RegisterDto } from 'src/app/core/dtos/register.dto';
 import { AuthorizationService } from 'src/app/core/services/authorization.service';
 
 import { Component } from '@angular/core';
-import {
-    AbstractControl, FormBuilder, ValidationErrors, ValidatorFn, Validators
-} from '@angular/forms';
+import { AbstractControl, FormBuilder, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent extends BaseFormComponent {
-  constructor(
-    private _authorizationService: AuthorizationService,
-    formBuilder: FormBuilder) {
+  constructor(private _authorizationService: AuthorizationService, formBuilder: FormBuilder) {
     super(formBuilder);
   }
 
@@ -31,16 +27,16 @@ export class RegisterComponent extends BaseFormComponent {
       email: controls.email.value,
       firstName: controls.firstName.value,
       lastName: controls.lastName.value,
-      password: controls.password.value
-    }
+      password: controls.password.value,
+    };
 
     this._authorizationService.register(dto);
   }
 
   private equal(): ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null => {
-      return control.value === control.parent?.get("password").value ? null : { equal: true } 
-    }
+      return control.value === control.parent?.get('password').value ? null : { equal: true };
+    };
   }
 
   protected setFormControls(): {} {
@@ -49,7 +45,7 @@ export class RegisterComponent extends BaseFormComponent {
       lastName: [null, [Validators.required]],
       email: [null, [Validators.required, Validators.email]],
       password: [null, [Validators.required, Validators.minLength(ValidationConditionConst.passwordMinLength)]],
-      repeatedPassword: [null, [Validators.required, this.equal()]]
+      repeatedPassword: [null, [Validators.required, this.equal()]],
     };
   }
 }
