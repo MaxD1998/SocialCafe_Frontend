@@ -13,7 +13,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 @Component({
   selector: 'app-conversation-create-popup',
   templateUrl: './conversation-create-popup.component.html',
-  styleUrls: ['./conversation-create-popup.component.css']
+  styleUrls: ['./conversation-create-popup.component.css'],
 })
 export class ConversationCreatePopupComponent implements OnInit {
   @Input() isVisible: boolean;
@@ -25,17 +25,18 @@ export class ConversationCreatePopupComponent implements OnInit {
   private _user: AuthorizeDto;
 
   constructor(
-    private _accountService: AccountService, 
+    private _accountService: AccountService,
     private _conversationService: ConversationService,
     private _friendDataService: FriendDataService,
-    private _messageService: MessageService) { }
+    private _messageService: MessageService
+  ) {}
 
   ngOnInit(): void {
     this._user = this._accountService.getUser();
 
     this.initSelectListItems();
   }
-  
+
   create() {
     this.createConversation();
     this.deactiveConversation();
@@ -51,38 +52,41 @@ export class ConversationCreatePopupComponent implements OnInit {
     this._messageService.conversation = {
       id: null,
       isActive: true,
-      name: "",
+      name: '',
       message: null,
       conversationMembers: this.friends
         .filter(x => x.isSelected)
-        .map(x => FriendSelectModelProfile.mapToConversationMemberDto(x))
-    }
+        .map(x => FriendSelectModelProfile.mapToConversationMemberDto(x)),
+    };
 
-    this._messageService.conversation.conversationMembers
-      .push(AuthorizeDtoProfile.mapToConversationMemberDto(this._user));
+    this._messageService.conversation.conversationMembers.push(
+      AuthorizeDtoProfile.mapToConversationMemberDto(this._user)
+    );
   }
 
   private deactiveConversation() {
-    const conversation = this._conversationService.conversations.find(x => x.isActive)
+    const conversation = this._conversationService.conversations.find(x => x.isActive);
 
     if (conversation) {
       conversation.isActive = false;
     }
   }
 
-  private initSelectListItems()
-  {
-    this._friendDataService.getsByUserId(this._user.id)
-      .pipe(map(response => {
-        return response.map<FriendSelectModel>(x => {
-          return {
-            id: x.id,
-            isSelected: false,
-            userid: x.userId,
-            username: `${x.user.firstName} ${x.user.lastName}`,
-          }
-        });
-      }))
-      .subscribe(response => this.friends = response);
+  private initSelectListItems() {
+    this._friendDataService
+      .getsByUserId(this._user.id)
+      .pipe(
+        map(response => {
+          return response.map<FriendSelectModel>(x => {
+            return {
+              id: x.id,
+              isSelected: false,
+              userid: x.userId,
+              username: `${x.user.firstName} ${x.user.lastName}`,
+            };
+          });
+        })
+      )
+      .subscribe(response => (this.friends = response));
   }
 }

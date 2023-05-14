@@ -7,14 +7,7 @@ import { NotificationModule } from './notification/notification.module';
 import { PostModule } from './post/post.module';
 
 @NgModule({
-  declarations: [
-    MainComponent,
-  ],
-  imports: [
-    CommonModule,
-    MainRoutingModule,
-    NotificationModule,
-    PostModule,
-  ]
+  declarations: [MainComponent],
+  imports: [CommonModule, MainRoutingModule, NotificationModule, PostModule],
 })
-export class MainModule { }
+export class MainModule {}

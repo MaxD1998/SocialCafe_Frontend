@@ -8,18 +8,18 @@ import { ConversationDto } from '../dtos/conversation/conversation.dto';
 import { ConversationInputDto } from '../dtos/conversation/conversation.input-dto';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ConversationDataService extends BaseDataService {
   create(dto: ConversationInputDto): Observable<ConversationDto> {
-    console.log(dto)
-    return this.httpPost<ConversationDto, ConversationInputDto>(ConversationRoute.create, dto)
+    console.log(dto);
+    return this.httpPost<ConversationDto, ConversationInputDto>(ConversationRoute.create, dto);
   }
 
   getById(id: string): Observable<ConversationDto> {
     return this.httpGet<ConversationDto>(ConversationRoute.getId + id);
   }
-  
+
   getsByUserId(id: string): Observable<ConversationDto[]> {
     return this.httpGet<ConversationDto[]>(ConversationRoute.getUserId + id);
   }

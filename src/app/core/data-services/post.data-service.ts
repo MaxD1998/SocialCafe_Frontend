@@ -8,7 +8,7 @@ import { PostDto } from '../dtos/post/post.dto';
 import { PostInputDto } from '../dtos/post/post.input-dto';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PostDataService extends BaseDataService {
   create(dto: PostInputDto): Observable<PostDto> {

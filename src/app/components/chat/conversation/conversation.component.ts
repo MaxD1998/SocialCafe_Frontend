@@ -10,15 +10,16 @@ import { ConversationBubbleComponent } from './conversation-bubble/conversation-
 @Component({
   selector: 'app-conversation',
   templateUrl: './conversation.component.html',
-  styleUrls: ['./conversation.component.css']
+  styleUrls: ['./conversation.component.css'],
 })
 export class ConversationComponent implements OnInit {
   isVisiblePopup: boolean = false;
-  
+
   constructor(
     public conversationService: ConversationService,
     private _messageDataService: MessageDataService,
-    private _messageService: MessageService) { }
+    private _messageService: MessageService
+  ) {}
 
   ngOnInit(): void {
     this.conversationService.initConversations();
@@ -35,11 +36,9 @@ export class ConversationComponent implements OnInit {
     }
 
     item.isActive = true;
-    this._messageDataService.getsByConversationId(item.id)
-      .subscribe(response => {
-        this._messageService.conversation = item;
-        this._messageService.messages = response?.reverse() ?? [];
-      });
+    this._messageDataService.getsByConversationId(item.id).subscribe(response => {
+      this._messageService.conversation = item;
+      this._messageService.messages = response?.reverse() ?? [];
+    });
   }
-
 }

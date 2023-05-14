@@ -14,14 +14,15 @@ import { ConversationService } from '../services/conversation.service';
 import { MessageService } from '../services/message.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SocialChatClient extends BaseClient {
   constructor(
     private _conversationDataService: ConversationDataService,
     private _conversationService: ConversationService,
     private _messageService: MessageService,
-    accountService: AccountService) {
+    accountService: AccountService
+  ) {
     super(accountService);
   }
 
@@ -30,11 +31,11 @@ export class SocialChatClient extends BaseClient {
   }
 
   createMessage(dto: MessageInputDto) {
-    this._hubConnection.invoke("CreateMessageAsync", dto);
+    this._hubConnection.invoke('CreateMessageAsync', dto);
   }
 
   private registerGetMessage(hubConnection: HubConnection) {
-    hubConnection.on("GetMessage", (response: MessageDto) => {
+    hubConnection.on('GetMessage', (response: MessageDto) => {
       const conversationId = this._messageService.conversation?.id;
       if (response.conversationId === conversationId) {
         this._messageService.addMessage(response);
@@ -45,15 +46,16 @@ export class SocialChatClient extends BaseClient {
         conversation.message = response;
         this._conversationService.addConversation(conversation);
       } else {
-        this._conversationDataService.getById(response.conversationId)
+        this._conversationDataService
+          .getById(response.conversationId)
           .pipe(map(response => ConversationDtoProfile.mapToConversationModel(response)))
           .subscribe(response => {
             this._conversationService.addConversation(response);
           });
       }
-    })
+    });
   }
-  
+
   protected registerMethods(): void {
     this.registerGetMessage(this._hubConnection);
   }

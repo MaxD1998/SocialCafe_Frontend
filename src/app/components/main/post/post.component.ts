@@ -10,7 +10,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
-  styleUrls: ['./post.component.css']
+  styleUrls: ['./post.component.css'],
 })
 export class PostComponent extends BaseFormComponent implements OnInit {
   private readonly _user: AuthorizeDto;
@@ -19,9 +19,10 @@ export class PostComponent extends BaseFormComponent implements OnInit {
   constructor(
     private _accountService: AccountService,
     private _postDataService: PostDataService,
-    formBuilder: FormBuilder) {
+    formBuilder: FormBuilder
+  ) {
     super(formBuilder);
-      this._user = this._accountService.getUser();
+    this._user = this._accountService.getUser();
   }
 
   ngOnInit(): void {
@@ -30,26 +31,28 @@ export class PostComponent extends BaseFormComponent implements OnInit {
 
   onSubmit() {
     console.log(this.form.controls.textArea.value);
-    this._postDataService.create({
-      userId: this._user.id,
-      text: this.form.controls.textArea.value
-    })
-    .subscribe(response => this.posts = [response].concat(this.posts));
+    this._postDataService
+      .create({
+        userId: this._user.id,
+        text: this.form.controls.textArea.value,
+      })
+      .subscribe(response => (this.posts = [response].concat(this.posts)));
     this.form.controls.textArea.reset();
   }
 
   textareaAutoHeightResize(textarea: HTMLTextAreaElement) {
-    textarea.style.height = 2 + textarea.scrollHeight + "px";
+    textarea.style.height = 2 + textarea.scrollHeight + 'px';
   }
 
   private initPosts(): void {
-    this._postDataService.getsByUserAndUserFriendsByUserId(this._user.id)
-      .subscribe(response => this.posts = response.reverse());
+    this._postDataService
+      .getsByUserAndUserFriendsByUserId(this._user.id)
+      .subscribe(response => (this.posts = response.reverse()));
   }
 
   protected setFormControls(): {} {
     return {
-      textArea: [null, Validators.required]
-    }
+      textArea: [null, Validators.required],
+    };
   }
 }

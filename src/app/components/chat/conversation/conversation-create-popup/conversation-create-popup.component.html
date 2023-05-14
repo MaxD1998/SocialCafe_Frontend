@@ -1,19 +1,19 @@
 <div class="box border-secondary border bg-dark">
-    <div class="sub-box">
-        <input type="text" class="form-control border-secondary text-bg-dark" />
+  <div class="sub-box">
+    <input type="text" class="form-control border-secondary text-bg-dark" />
+  </div>
+  <div class="flex-grow-1 sub-box">
+    <div *ngFor="let friend of friends" class="friend-item">
+      <div class="circle"></div>
+      <div class="flex-grow-1">
+        <span class="text-light">{{ friend.username }}</span>
+      </div>
+      <div class="checkbox-box">
+        <input #checkbox type="checkbox" (change)="onChange(checkbox, friend)" [checked]="friend.isSelected" />
+      </div>
     </div>
-    <div class="flex-grow-1 sub-box">
-        <div *ngFor="let friend of friends" class="friend-item">
-            <div class="circle"></div>
-            <div class="flex-grow-1">
-                <span class="text-light">{{friend.username}}</span>
-            </div>
-            <div class="checkbox-box">
-                <input #checkbox type="checkbox" (change)="onChange(checkbox, friend)" [checked]="friend.isSelected"/>
-            </div>
-        </div>
-    </div>
-    <div class="sub-box">
-        <button class="btn btn-outline-light" (click)="create()">Utwórz</button>
-    </div>
+  </div>
+  <div class="sub-box">
+    <button class="btn btn-outline-light" (click)="create()">Utwórz</button>
+  </div>
 </div>

@@ -8,7 +8,7 @@ import { FriendDto } from '../dtos/friend/friend.dto';
 import { FriendInputDto } from '../dtos/friend/friend.input-dto';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class FriendDataService extends BaseDataService {
   create(dto: FriendInputDto): Observable<FriendDto> {

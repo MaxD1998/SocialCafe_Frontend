@@ -7,10 +7,9 @@ import { AccountService } from '../services/account.service';
 
 @Injectable()
 export abstract class BaseInterceptor implements HttpInterceptor {
-
   constructor(protected accountService: AccountService) {}
 
-  abstract intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>>
+  abstract intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>>;
 
   setAuthHeader(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     let user = this.accountService.getUser();
@@ -18,8 +17,8 @@ export abstract class BaseInterceptor implements HttpInterceptor {
     if (this.accountService.isSignedIn() && user != null) {
       request = request.clone({
         setHeaders: {
-          Authorization: `Bearer ${user.token}`
-        }
+          Authorization: `Bearer ${user.token}`,
+        },
       });
     }
 

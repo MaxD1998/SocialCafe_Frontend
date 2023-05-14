@@ -7,22 +7,22 @@ import { ConversationModel } from '../models/conversations/conversation.model';
 import { AccountService } from './account.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class MessageService {
   messages: MessageDto[] = [];
 
   private _conversation: ConversationModel;
-  
-  get conversation(): ConversationModel{
+
+  get conversation(): ConversationModel {
     if (!this._conversation) {
       return null;
     }
-    
+
     const user = this._accountService.getUser();
-    const result = ConversationModelProfile.mapToConversationModel(this._conversation)
+    const result = ConversationModelProfile.mapToConversationModel(this._conversation);
     result.name = ConversationNameHelper.setName(result, user.id);
-    
+
     return result;
   }
 
@@ -30,7 +30,7 @@ export class MessageService {
     this._conversation = item;
   }
 
-  constructor(private _accountService: AccountService) { }
+  constructor(private _accountService: AccountService) {}
 
   addMessage(dto: MessageDto) {
     this.messages = [dto].concat(this.messages);

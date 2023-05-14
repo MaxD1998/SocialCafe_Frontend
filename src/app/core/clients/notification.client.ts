@@ -12,9 +12,7 @@ import { NotificationService } from '../services/notification.service';
   providedIn: 'root',
 })
 export class NotificationClient extends BaseClient {
-  constructor(
-    private _notificationService: NotificationService,
-    accoutnService: AccountService) {
+  constructor(private _notificationService: NotificationService, accoutnService: AccountService) {
     super(accoutnService);
   }
 
@@ -24,16 +22,17 @@ export class NotificationClient extends BaseClient {
 
   sendNotification(dto: NotificationInputDto): boolean {
     let result: boolean;
-    this._hubConnection.invoke("CreateNotificationAsync", dto)
-      .then(() => result = true)
-      .catch(() => result = false);
+    this._hubConnection
+      .invoke('CreateNotificationAsync', dto)
+      .then(() => (result = true))
+      .catch(() => (result = false));
 
     return result;
   }
 
   protected registerMethods(): void {
-    this._hubConnection.on("GetNotification", (response: NotificationDto) => {
+    this._hubConnection.on('GetNotification', (response: NotificationDto) => {
       this._notificationService.addNotification(response);
-    })
+    });
   }
 }

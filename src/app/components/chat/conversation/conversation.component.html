@@ -1,15 +1,15 @@
 <div class="d-flex flex-column flex-grow-1 bg-dark border-secondary border-end box">
-    <div class="flex-grow-1 scroll">
-        <app-conversation-bubble 
-            [conversation]="conversation" 
-            *ngFor="let conversation of conversationService.conversations"
-            (click)="selectItemHandler(conversation)">
-        </app-conversation-bubble>
-    </div>
-    <div class="bottom-box border-secondary border-top">
-        <button class="btn btn-dark fs-5" (click)="openClosePopup()">
-            <i class="bi bi-journal-plus"></i>
-        </button>
-    </div>
+  <div class="flex-grow-1 scroll">
+    <app-conversation-bubble
+      [conversation]="conversation"
+      *ngFor="let conversation of conversationService.conversations"
+      (click)="selectItemHandler(conversation)">
+    </app-conversation-bubble>
+  </div>
+  <div class="bottom-box border-secondary border-top">
+    <button class="btn btn-dark fs-5" (click)="openClosePopup()">
+      <i class="bi bi-journal-plus"></i>
+    </button>
+  </div>
 </div>
 <app-conversation-create-popup *ngIf="isVisiblePopup" [(isVisible)]="isVisiblePopup"></app-conversation-create-popup>

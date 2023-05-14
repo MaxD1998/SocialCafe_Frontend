@@ -2,6 +2,6 @@ import { UserSlimDto } from '../user/user.slim-dto';
 import { PostInputDto } from './post.input-dto';
 
 export interface PostDto extends PostInputDto {
-    id: string;
-    user: UserSlimDto
+  id: string;
+  user: UserSlimDto;
 }

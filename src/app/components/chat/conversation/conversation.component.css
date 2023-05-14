@@ -1,17 +1,17 @@
 :host {
-    display: flex;
-    width: 18.75rem;
+  display: flex;
+  width: 18.75rem;
 }
 
 .box {
-    width: inherit;
+  width: inherit;
 }
 
 .bottom-box {
-    padding: 0.5rem;
+  padding: 0.5rem;
 }
 
 .scroll {
-    overflow-y: auto;
-    overflow-x: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
 }

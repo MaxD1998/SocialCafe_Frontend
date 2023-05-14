@@ -1,3 +1,3 @@
 export class CookiesNameConst {
-    static readonly id = "Id"
+  static readonly id = 'Id';
 }

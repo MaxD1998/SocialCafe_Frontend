@@ -10,27 +10,20 @@ import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
 import { AuthorizationService } from './core/services/authorization.service';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavComponent
-  ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    AppRoutingModule
-  ],
+  declarations: [AppComponent, NavComponent],
+  imports: [BrowserModule, HttpClientModule, AppRoutingModule],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-    { 
-      provide: APP_INITIALIZER, 
+    {
+      provide: APP_INITIALIZER,
       useFactory(authorizationService: AuthorizationService) {
         return async () => await authorizationService.authorize();
       },
-      deps: [ AuthorizationService ],
-      multi: true
+      deps: [AuthorizationService],
+      multi: true,
     },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

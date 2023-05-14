@@ -1,44 +1,44 @@
 :host {
-    --bg-color: ;
-    --bg-hover-color: ;
+  --bg-color: ;
+  --bg-hover-color: ;
 
-    display: flex;
-    height: 5rem;
-    width: 18.75rem;
-    padding: 0.5rem 0.75rem;
-    background-color: var(--bg-color);
+  display: flex;
+  height: 5rem;
+  width: 18.75rem;
+  padding: 0.5rem 0.75rem;
+  background-color: var(--bg-color);
 }
 
 :host:hover {
-    background-color: var(--bg-hover-color);
-    cursor: pointer;
+  background-color: var(--bg-hover-color);
+  cursor: pointer;
 }
 
 .circle {
-    flex-grow: 1;
-    border-radius: 50%;
-    background-color: green;
+  flex-grow: 1;
+  border-radius: 50%;
+  background-color: green;
 }
 
 .circle-box {
-    display: flex;
-    width: 4rem;
-    padding: 0.5rem;
+  display: flex;
+  width: 4rem;
+  padding: 0.5rem;
 }
 
 .detail-box {
-    width: 13.25rem;
-    padding: 0.5rem;
+  width: 13.25rem;
+  padding: 0.5rem;
 }
 
 span {
-    display: inline-block;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    width: 12.25rem;
+  display: inline-block;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 12.25rem;
 }
 
 span.text-secondary {
-    font-size: small;
+  font-size: small;
 }

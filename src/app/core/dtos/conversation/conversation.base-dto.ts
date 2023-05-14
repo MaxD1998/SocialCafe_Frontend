@@ -1,3 +1,3 @@
 export interface ConversationBaseDto {
-    name: string
+  name: string;
 }

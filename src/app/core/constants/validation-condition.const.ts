@@ -1,3 +1,3 @@
 export class ValidationConditionConst {
-    static readonly passwordMinLength = 5;
+  static readonly passwordMinLength = 5;
 }

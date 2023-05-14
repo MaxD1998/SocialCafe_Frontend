@@ -11,16 +11,15 @@ import { ConversationService } from './conversation.service';
 import { MessageService } from './message.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ChatService {
-  
   constructor(
     private _conversationDataService: ConversationDataService,
     private _conversationService: ConversationService,
     private _messageService: MessageService,
-    private _socialChatClient: SocialChatClient) {
-  }
+    private _socialChatClient: SocialChatClient
+  ) {}
 
   addMessage(dto: MessageInputDto) {
     if (dto.conversationId === null) {
@@ -31,7 +30,8 @@ export class ChatService {
   }
 
   private createConversation(conversation: ConversationInputDto, message: MessageInputDto): void {
-    this._conversationDataService.create(conversation)
+    this._conversationDataService
+      .create(conversation)
       .pipe(map(value => ConversationDtoProfile.mapToConversationModel(value)))
       .subscribe(response => {
         this._messageService.conversation = response;

@@ -6,28 +6,29 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 @Component({
   selector: 'app-notification-bubble',
   templateUrl: './notification-bubble.component.html',
-  styleUrls: ['./notification-bubble.component.css']
+  styleUrls: ['./notification-bubble.component.css'],
 })
 export class NotificationBubbleComponent implements OnInit {
   @Input() notification: NotificationDto;
 
   @Output() outputEvent = new EventEmitter<string>();
-  
+
   userName: string;
 
-  constructor(private _friendDataService: FriendDataService) { }
+  constructor(private _friendDataService: FriendDataService) {}
 
   ngOnInit(): void {
     this.userName = `${this.notification.user.firstName} ${this.notification.user.lastName}`;
   }
 
   accept(): void {
-    this._friendDataService.create({
-      inviterId: this.notification.userId,
-      recipientId: this.notification.recipientId,
-    })
-    .subscribe();
-    
+    this._friendDataService
+      .create({
+        inviterId: this.notification.userId,
+        recipientId: this.notification.recipientId,
+      })
+      .subscribe();
+
     this.outputEvent.emit(this.notification.id);
   }
 

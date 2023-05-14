@@ -14,28 +14,28 @@ const routes: Routes = [
     path: '',
     canActivate: [AuthorizationGuard],
     children: [
-      { 
+      {
         path: 'main',
-        loadChildren: () => import('./components/main/main.module').then(m => m.MainModule)
+        loadChildren: () => import('./components/main/main.module').then(m => m.MainModule),
       },
-      { 
+      {
         path: 'chat',
-        loadChildren: () => import('./components/chat/chat.module').then(m => m.ChatModule)
+        loadChildren: () => import('./components/chat/chat.module').then(m => m.ChatModule),
       },
-      { 
+      {
         path: 'friend',
-        loadChildren: () => import('./components/friend/friend.module').then(m => m.FriendModule)
+        loadChildren: () => import('./components/friend/friend.module').then(m => m.FriendModule),
       },
-    ]
+    ],
   },
-  { 
+  {
     path: '',
-    loadChildren: () => import('./components/authorization/authorization.module').then(m => m.AuthorizationModule)
+    loadChildren: () => import('./components/authorization/authorization.module').then(m => m.AuthorizationModule),
   },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

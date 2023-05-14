@@ -2,5 +2,5 @@ import { ConversationMemberInputDto } from '../conversation-member/conversation-
 import { ConversationBaseDto } from './conversation.base-dto';
 
 export interface ConversationInputDto extends ConversationBaseDto {
-    conversationMembers: ConversationMemberInputDto[];
+  conversationMembers: ConversationMemberInputDto[];
 }

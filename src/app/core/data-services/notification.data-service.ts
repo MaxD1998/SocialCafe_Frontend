@@ -8,7 +8,7 @@ import { NotificationDto } from '../dtos/notification/notification.dto';
 import { NotificationInputDto } from '../dtos/notification/notification.input-dto';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class NotificationDataService extends BaseDataService {
   delete(id: string): Observable<boolean> {

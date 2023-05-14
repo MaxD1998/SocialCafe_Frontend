@@ -1,15 +1,15 @@
 @media only screen and (max-width: 950px) {
-    .large-screen {
-        display: none;
-    }
+  .large-screen {
+    display: none;
+  }
 }
 
 @media only screen and (min-width: 950px) {
-    .small-screen {
-        display: none;
-    }
+  .small-screen {
+    display: none;
+  }
 }
 
 header {
-    height: var(--nav-height);
+  height: var(--nav-height);
 }

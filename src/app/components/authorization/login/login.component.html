@@ -1,17 +1,25 @@
 <div class="canvas">
-    <div class="box rounded bg-light border border-dark">
-        <div class="d-center border-bottom border-secondary">
-            <span class="h2">Logowanie</span>
-        </div>
-        <form [formGroup]="form" (ngSubmit)="onSubmit()">
-            <app-form-input [errorCode]="errorCode('email')" label="Email" type="email" formControlName="email"></app-form-input>
-            <app-form-input [errorCode]="errorCode('password')" label="Hasło" type="password" formControlName="password"></app-form-input>
-            <div class="button-box">
-                <button class="btn btn-outline-dark">Zaloguj</button>
-            </div>
-        </form>
-        <div class="button-box">
-            <a class="btn btn-outline-dark" [routerLink]="ComponentRoute.register">Nie masz konta? Zarejestruj się!</a>
-        </div>
+  <div class="box rounded bg-light border border-dark">
+    <div class="d-center border-bottom border-secondary">
+      <span class="h2">Logowanie</span>
     </div>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <app-form-input
+        [errorCode]="errorCode('email')"
+        label="Email"
+        type="email"
+        formControlName="email"></app-form-input>
+      <app-form-input
+        [errorCode]="errorCode('password')"
+        label="Hasło"
+        type="password"
+        formControlName="password"></app-form-input>
+      <div class="button-box">
+        <button class="btn btn-outline-dark">Zaloguj</button>
+      </div>
+    </form>
+    <div class="button-box">
+      <a class="btn btn-outline-dark" [routerLink]="ComponentRoute.register">Nie masz konta? Zarejestruj się!</a>
+    </div>
+  </div>
 </div>

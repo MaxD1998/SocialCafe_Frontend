@@ -8,24 +8,24 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
-  styleUrls: ['./nav.component.css']
+  styleUrls: ['./nav.component.css'],
 })
 export class NavComponent implements DoCheck {
   ComponentRoute = ComponentRoute;
 
-  isSignedIn: boolean
-  username: string 
+  isSignedIn: boolean;
+  username: string;
 
   constructor(
-    private _accountService: AccountService, 
+    private _accountService: AccountService,
     private _authorizationService: AuthorizationService,
-    private _router: Router) { }
+    private _router: Router
+  ) {}
 
   ngDoCheck(): void {
     this.isSignedIn = this._accountService.isSignedIn();
     this.username = this.getUsername();
   }
-  
 
   logout(): void {
     this._authorizationService.logout();
@@ -35,11 +35,10 @@ export class NavComponent implements DoCheck {
   private getUsername(): string {
     let user = this._accountService.getUser();
 
-    if(user != null) {
-      return user.username
+    if (user != null) {
+      return user.username;
     }
 
     return null;
   }
-
 }
