@@ -1,8 +1,7 @@
 import { UserDataService } from 'src/app/core/data-services/user.data-service';
-import { UserSlimDto } from 'src/app/core/dtos/user/user.slim-dto';
-import { AccountService } from 'src/app/core/services/account.service';
 
 import { Component } from '@angular/core';
+import { InviteUserDto } from 'src/app/core/dtos/user/invite-user.dto';
 
 @Component({
   selector: 'app-friend-search-list',
@@ -10,7 +9,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./friend-search-list.component.css'],
 })
 export class FriendSearchListComponent {
-  users: UserSlimDto[] = [];
+  users: InviteUserDto[] = [];
 
   constructor(private _userDataService: UserDataService) {}
 
@@ -26,7 +25,6 @@ export class FriendSearchListComponent {
 
     this._userDataService.getsByNamesExceptUserFriends(names[0], names[1]).subscribe(response => {
       this.users = response;
-      console.log(response);
     });
   }
 }

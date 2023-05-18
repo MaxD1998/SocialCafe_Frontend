@@ -23,9 +23,4 @@
 
 button {
   width: inherit;
-  border-color: rgba(var(--bs-secondary-rgb)) !important;
-}
-
-button:hover {
-  border-color: rgba(var(--bs-light-rgb)) !important;
 }

@@ -3,5 +3,19 @@
   <span class="text-light">{{ user.firstName }} {{ user.lastName }}</span>
 </div>
 <div class="button-box">
-  <button class="btn btn-outline-light" [disabled]="isDisable" (click)="add()">Dodaj</button>
+  <button *ngIf="user.type === type.None" class="btn btn-outline-success" [disabled]="isDisable" (click)="add()">
+    Dodaj
+  </button>
+  <button *ngIf="user.type === type.Invited" class="btn btn-outline-danger" [disabled]="isDisable" (click)="abadon()">
+    Usuń
+  </button>
+  <div *ngIf="user.type === type.Inviter" class="d-flex">
+    <button class="btn btn-outline-danger" [disabled]="isDisable" (click)="abadon()">
+      <i class="bi bi-x-lg"></i>
+    </button>
+    <div class="flex-grow-1"></div>
+    <button class="btn btn-outline-success" [disabled]="isDisable" (click)="accept()">
+      <i class="bi bi-check2"></i>
+    </button>
+  </div>
 </div>
