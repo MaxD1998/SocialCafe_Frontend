@@ -20,19 +20,21 @@ export class NotificationClient extends BaseClient {
     return environment.notification;
   }
 
-  sendNotification(dto: NotificationInputDto): boolean {
-    let result: boolean;
-    this._hubConnection
-      .invoke('CreateNotificationAsync', dto)
-      .then(() => (result = true))
-      .catch(() => (result = false));
+  sendNotification(dto: NotificationInputDto): Promise<string> {
+    return this._hubConnection.invoke('CreateNotificationAsync', dto);
+  }
 
-    return result;
+  removeNotification(id: string): Promise<boolean> {
+    return this._hubConnection.invoke('RemoveNotificationAsync', id);
   }
 
   protected registerMethods(): void {
-    this._hubConnection.on('GetNotification', (response: NotificationDto) => {
+    this._hubConnection.on('AddNotification', (response: NotificationDto) => {
       this._notificationService.addNotification(response);
+    });
+
+    this._hubConnection.on('RemoveNotification', (response: string) => {
+      this._notificationService.removeNotification(response);
     });
   }
 }
