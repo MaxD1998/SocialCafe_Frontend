@@ -8,9 +8,10 @@ import { NavComponent } from './components/nav/nav.component';
 import { ErrorInterceptor } from './core/interceptors/error.interceptor';
 import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
 import { AuthorizationService } from './core/services/authorization.service';
+import { UserDetailsComponent } from './components/user-details/user-details.component';
 
 @NgModule({
-  declarations: [AppComponent, NavComponent],
+  declarations: [AppComponent, NavComponent, UserDetailsComponent],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
