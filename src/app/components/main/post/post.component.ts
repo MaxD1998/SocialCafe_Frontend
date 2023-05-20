@@ -10,7 +10,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
-  styleUrls: ['./post.component.css'],
+  styleUrls: ['./post.component.scss'],
 })
 export class PostComponent extends BaseFormComponent implements OnInit {
   private readonly _user: AuthorizeDto;

@@ -10,7 +10,7 @@ const CUSTOM_VALUE_ACCESSOR: Provider = {
 @Component({
   selector: 'app-form-input',
   templateUrl: './form-input.component.html',
-  styleUrls: ['./form-input.component.css'],
+  styleUrls: ['./form-input.component.scss'],
   providers: [CUSTOM_VALUE_ACCESSOR],
 })
 export class FormInputComponent implements ControlValueAccessor {

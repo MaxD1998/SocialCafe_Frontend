@@ -7,7 +7,7 @@ import { Component, DoCheck, HostBinding, Input, OnInit } from '@angular/core';
 @Component({
   selector: 'app-conversation-bubble',
   templateUrl: './conversation-bubble.component.html',
-  styleUrls: ['./conversation-bubble.component.css'],
+  styleUrls: ['./conversation-bubble.component.scss'],
 })
 export class ConversationBubbleComponent implements OnInit, DoCheck {
   @HostBinding('style.--bg-color') _bgColor: string = null;

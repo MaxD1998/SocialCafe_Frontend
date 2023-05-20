@@ -5,7 +5,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 @Component({
   selector: 'app-friend-bubble',
   templateUrl: './friend-bubble.component.html',
-  styleUrls: ['./friend-bubble.component.css'],
+  styleUrls: ['./friend-bubble.component.scss'],
 })
 export class FriendBubbleComponent {
   @Input() friend: FriendModel;
