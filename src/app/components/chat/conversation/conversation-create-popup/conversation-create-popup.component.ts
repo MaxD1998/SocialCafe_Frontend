@@ -13,7 +13,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 @Component({
   selector: 'app-conversation-create-popup',
   templateUrl: './conversation-create-popup.component.html',
-  styleUrls: ['./conversation-create-popup.component.scss'],
+  styleUrls: ['./conversation-create-popup.component.less'],
 })
 export class ConversationCreatePopupComponent implements OnInit {
   @Input() isVisible: boolean;

@@ -6,7 +6,7 @@ import { InviteUserDto } from 'src/app/core/dtos/user/invite-user.dto';
 @Component({
   selector: 'app-friend-search-list',
   templateUrl: './friend-search-list.component.html',
-  styleUrls: ['./friend-search-list.component.scss'],
+  styleUrls: ['./friend-search-list.component.less'],
 })
 export class FriendSearchListComponent {
   users: InviteUserDto[] = [];

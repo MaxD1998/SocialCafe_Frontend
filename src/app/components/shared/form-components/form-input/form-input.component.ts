@@ -1,4 +1,4 @@
-import { Component, forwardRef, Input, OnInit, Provider } from '@angular/core';
+import { Component, forwardRef, Input, Provider } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 const CUSTOM_VALUE_ACCESSOR: Provider = {
@@ -10,7 +10,7 @@ const CUSTOM_VALUE_ACCESSOR: Provider = {
 @Component({
   selector: 'app-form-input',
   templateUrl: './form-input.component.html',
-  styleUrls: ['./form-input.component.scss'],
+  styleUrls: ['./form-input.component.less'],
   providers: [CUSTOM_VALUE_ACCESSOR],
 })
 export class FormInputComponent implements ControlValueAccessor {
