@@ -4,4 +4,5 @@ export class ComponentRoute {
   static readonly login = '/login';
   static readonly main = '/main';
   static readonly register = '/register';
+  static readonly userDetailsId = '/user-details/';
 }

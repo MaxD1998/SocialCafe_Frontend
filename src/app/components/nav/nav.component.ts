@@ -11,7 +11,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./nav.component.less'],
 })
 export class NavComponent implements DoCheck {
-  ComponentRoute = ComponentRoute;
+  ComponentRoute: typeof ComponentRoute = ComponentRoute;
+  userDetailsRoute: string = ComponentRoute.userDetailsId;
 
   isSignedIn: boolean;
   username: string;
@@ -24,21 +25,15 @@ export class NavComponent implements DoCheck {
 
   ngDoCheck(): void {
     this.isSignedIn = this._accountService.isSignedIn();
-    this.username = this.getUsername();
+    if (this.isSignedIn) {
+      const user = this._accountService.getUser();
+      this.username = user.username;
+      this.userDetailsRoute = `${ComponentRoute.userDetailsId}${user.id}`;
+    }
   }
 
   logout(): void {
     this._authorizationService.logout();
     this._router.navigateByUrl(ComponentRoute.login);
-  }
-
-  private getUsername(): string {
-    let user = this._accountService.getUser();
-
-    if (user != null) {
-      return user.username;
-    }
-
-    return null;
   }
 }
