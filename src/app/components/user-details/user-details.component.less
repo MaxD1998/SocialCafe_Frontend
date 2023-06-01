@@ -1,0 +1,40 @@
+:host {
+  display: flex;
+  align-items: center;
+  height: calc(100% - var(--nav-height));
+  flex-direction: column;
+}
+
+:host > div {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 65rem;
+  gap: 1rem;
+  padding-top: 1rem;
+}
+
+.details-section {
+  display: flex;
+  flex-grow: 1;
+  gap: 1rem;
+}
+
+.friend-list {
+  flex: 1 1 1rem;
+  padding: 0.5rem;
+}
+
+.user-nav {
+  padding: 0.5rem;
+}
+
+.user-nav > span {
+  font-size: larger;
+  font-weight: bold;
+}
+
+.post-list {
+  flex: 2 1 1rem;
+  padding: 0.5rem;
+}

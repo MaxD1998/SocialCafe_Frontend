@@ -2,12 +2,12 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { PostBubbleComponent } from './post-bubble/post-bubble.component';
+import { SharedModule } from '../../shared/shared.module';
 import { PostComponent } from './post.component';
 
 @NgModule({
-  declarations: [PostComponent, PostBubbleComponent],
+  declarations: [PostComponent],
   exports: [PostComponent],
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, SharedModule, ReactiveFormsModule],
 })
 export class PostModule {}

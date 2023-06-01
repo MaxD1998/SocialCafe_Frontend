@@ -5,12 +5,10 @@ import { MessageService } from 'src/app/core/services/message.service';
 
 import { Component, OnInit } from '@angular/core';
 
-import { ConversationBubbleComponent } from './conversation-bubble/conversation-bubble.component';
-
 @Component({
   selector: 'app-conversation',
   templateUrl: './conversation.component.html',
-  styleUrls: ['./conversation.component.css'],
+  styleUrls: ['./conversation.component.less'],
 })
 export class ConversationComponent implements OnInit {
   isVisiblePopup: boolean = false;

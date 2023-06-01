@@ -1,11 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
-import { FormInputComponent } from './form-components/form-input/form-input.component';
+import { PostBubbleComponent } from './post-bubble/post-bubble.component';
 
 @NgModule({
-  declarations: [FormInputComponent],
+  declarations: [PostBubbleComponent],
   imports: [CommonModule],
-  exports: [FormInputComponent],
+  exports: [PostBubbleComponent],
 })
 export class SharedModule {}

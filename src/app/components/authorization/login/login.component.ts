@@ -10,7 +10,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
+  styleUrls: ['./login.component.less'],
 })
 export class LoginComponent extends BaseFormComponent {
   ComponentRoute = ComponentRoute;

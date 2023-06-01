@@ -11,7 +11,7 @@ import { GuidHelper } from 'src/app/core/helpers/guid.helper';
 @Component({
   selector: 'app-friend-select-item',
   templateUrl: './friend-select-item.component.html',
-  styleUrls: ['./friend-select-item.component.css'],
+  styleUrls: ['./friend-select-item.component.less'],
 })
 export class FriendSelectItemComponent {
   @Input() user: InviteUserDto;

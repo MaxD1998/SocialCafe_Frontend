@@ -15,16 +15,20 @@ const routes: Routes = [
     canActivate: [AuthorizationGuard],
     children: [
       {
-        path: 'main',
-        loadChildren: () => import('./components/main/main.module').then(m => m.MainModule),
-      },
-      {
         path: 'chat',
         loadChildren: () => import('./components/chat/chat.module').then(m => m.ChatModule),
       },
       {
         path: 'friend',
         loadChildren: () => import('./components/friend/friend.module').then(m => m.FriendModule),
+      },
+      {
+        path: 'main',
+        loadChildren: () => import('./components/main/main.module').then(m => m.MainModule),
+      },
+      {
+        path: 'user-details/:id',
+        loadChildren: () => import('./components/user-details/user-details.module').then(m => m.UserDetailsModule),
       },
     ],
   },

@@ -3,12 +3,12 @@ import { AccountService } from 'src/app/core/services/account.service';
 import { ChatService } from 'src/app/core/services/chat.service';
 import { MessageService } from 'src/app/core/services/message.service';
 
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-message',
   templateUrl: './message.component.html',
-  styleUrls: ['./message.component.css'],
+  styleUrls: ['./message.component.less'],
 })
 export class MessageComponent {
   message: string = '';

@@ -6,16 +6,18 @@ import { Injectable } from '@angular/core';
 import { BaseDataService } from '../bases/base.data-service';
 import { UserRoute } from '../constants/routes/api-routes/user.route';
 import { InviteUserDto } from '../dtos/user/invite-user.dto';
+import { UserDto } from '../dtos/user/user.dto';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserDataService extends BaseDataService {
-  getsByNamesExceptUserFriends(firstName: string, lastName: string): Observable<InviteUserDto[]> {
-    let params = new HttpParams();
-    params = params.append('firstName', firstName);
-    params = params.append('lastName', lastName);
+  getById(id: string): Observable<UserDto> {
+    return this.httpGet<UserDto>(UserRoute.getById + id);
+  }
 
-    return this.httpGet(UserRoute.getsNamesExceptUserFriends, { params: params });
+  getsByNamesExceptUserFriends(firstName: string, lastName: string): Observable<InviteUserDto[]> {
+    const params = new HttpParams().append('firstName', firstName).append('lastName', lastName);
+    return this.httpGet<InviteUserDto[]>(UserRoute.getsNamesExceptUserFriends, { params: params });
   }
 }

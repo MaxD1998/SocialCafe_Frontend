@@ -1,0 +1,19 @@
+<div *ngIf="isLoaded">
+  <div class="user-nav bg-dark rounded-top">
+    <span class="text-light">{{ userName }}</span>
+  </div>
+  <div class="details-section">
+    <div class="friend-list bg-dark">
+      <div class="border-bottom border-secondary">
+        <span class="text-light"> Lista przyjaciół </span>
+      </div>
+      <app-friend-bubble [friend]="friend" *ngFor="let friend of friends"></app-friend-bubble>
+    </div>
+    <div class="post-list bg-dark">
+      <div class="border-bottom border-secondary">
+        <span class="text-light"> Lista postów </span>
+      </div>
+      <app-post-bubble [post]="post" *ngFor="let post of posts"></app-post-bubble>
+    </div>
+  </div>
+</div>

@@ -6,7 +6,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 @Component({
   selector: 'app-notification-bubble',
   templateUrl: './notification-bubble.component.html',
-  styleUrls: ['./notification-bubble.component.css'],
+  styleUrls: ['./notification-bubble.component.less'],
 })
 export class NotificationBubbleComponent implements OnInit {
   @Input() notification: NotificationDto;
