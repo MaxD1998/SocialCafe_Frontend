@@ -3,4 +3,5 @@ export class UserRoute {
 
   static readonly getById = this.base;
   static readonly getsNamesExceptUserFriends = this.base + 'NamesExceptUserFriends/';
+  static readonly update = this.base;
 }

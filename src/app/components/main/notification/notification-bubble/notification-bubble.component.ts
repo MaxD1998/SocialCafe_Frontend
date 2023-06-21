@@ -11,7 +11,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class NotificationBubbleComponent implements OnInit {
   @Input() notification: NotificationDto;
 
-  @Output() outputEvent = new EventEmitter<string>();
+  @Output() outputEvent: EventEmitter<string> = new EventEmitter<string>();
 
   userName: string;
 

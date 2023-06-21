@@ -24,8 +24,8 @@ export class UserDetailsComponent implements OnInit {
 
   constructor(
     private _friendDataService: FriendDataService,
-    private _userDataService: UserDataService,
     private _postDataService: PostDataService,
+    private _userDataService: UserDataService,
     private _activatedRouteSnapshot: ActivatedRoute,
     private _router: Router
   ) {}

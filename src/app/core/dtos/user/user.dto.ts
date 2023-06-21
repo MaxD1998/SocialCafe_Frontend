@@ -1,5 +1,5 @@
-import { UserSlimDto } from './user.slim-dto';
+import { UserInputDto } from './user.input-dto';
 
-export interface UserDto extends UserSlimDto {
-  email: string;
+export interface UserDto extends UserInputDto {
+  id: string;
 }

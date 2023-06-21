@@ -5,4 +5,5 @@ export class ComponentRoute {
   static readonly main = '/main';
   static readonly register = '/register';
   static readonly userDetailsId = '/user-details/';
+  static readonly userEditId = '/user-edit/';
 }

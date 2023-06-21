@@ -30,6 +30,10 @@ const routes: Routes = [
         path: 'user-details/:id',
         loadChildren: () => import('./components/user-details/user-details.module').then(m => m.UserDetailsModule),
       },
+      {
+        path: 'user-edit/:id',
+        loadChildren: () => import('./components/user-edit/user-edit.module').then(m => m.UserEditModule),
+      },
     ],
   },
   {
