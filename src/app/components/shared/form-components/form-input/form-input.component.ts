@@ -14,23 +14,24 @@ const CUSTOM_VALUE_ACCESSOR: Provider = {
   providers: [CUSTOM_VALUE_ACCESSOR],
 })
 export class FormInputComponent implements ControlValueAccessor {
+  @Input() disabled: boolean = false;
   @Input() errorCode: string;
   @Input() label: string;
   @Input() type: string;
 
-  private _value: string;
+  value: string;
 
   onValueChange(element: HTMLInputElement) {
-    this._value = element.value;
-    this.onChange(this._value);
-    this.onTouch(this._value);
+    this.value = element.value;
+    this.onChange(this.value);
+    this.onTouch(this.value);
   }
 
   onChange: any = () => {};
   onTouch: any = () => {};
 
   writeValue(obj: string): void {
-    this._value = obj;
+    this.value = obj;
   }
   registerOnChange(fn: any): void {
     this.onChange = fn;

@@ -4,7 +4,9 @@
     id="floatingInput"
     class="form-control"
     [ngClass]="{ 'is-invalid': errorCode }"
+    [disabled]="disabled"
     [type]="type"
+    [value]="value"
     (change)="onValueChange(input)"
     (blur)="onValueChange(input)" />
   <label for="floatingInput">

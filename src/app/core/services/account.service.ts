@@ -20,6 +20,10 @@ export class AccountService {
     this._user = dto;
   }
 
+  setUsername(username: string): void {
+    this._user.username = username;
+  }
+
   removeUser(): void {
     this._user = null;
   }
